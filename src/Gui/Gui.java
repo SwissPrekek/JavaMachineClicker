@@ -2,32 +2,17 @@ package Gui;
 import javax.swing.*;        
 
 public class Gui {
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-    private static void createAndShowGUI() {
-        //Create and set up the window.
+    public static void generateMainGui() {
+        //Fenster erstellen
         JFrame frame = new JFrame("HelloWorldSwing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Hello World");
+        //Fügt Label hinzu
+        JLabel label = new JLabel("Testgui");
         frame.getContentPane().add(label);
 
-        //Display the window.
+        //Zeigt das Fenster an
         frame.pack();
         frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
     }
 }
