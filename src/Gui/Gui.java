@@ -2,7 +2,7 @@ package Gui;
 import javax.swing.*;        
 
 public class Gui {
-    public static void generateMainGui() {
+    public Gui() {
         //Fenster erstellen
         JFrame frame = new JFrame("HelloWorldSwing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
