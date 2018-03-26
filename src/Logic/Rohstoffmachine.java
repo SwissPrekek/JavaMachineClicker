@@ -1,5 +1,13 @@
 package Logic;
 
-public class Rohstoffmachine {
+public class Rohstoffmachine  implements RzFace{
+	private double menge;
 
+	public void zaehlen() {
+		
+	}
+
+	public void AddToRohstofflager() {
+		
+	}
 }
