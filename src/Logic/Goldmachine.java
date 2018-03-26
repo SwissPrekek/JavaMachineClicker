@@ -9,13 +9,14 @@ private double menge;
 
 
 public void zaehlen() {
-	int i=0;
+	
 	int a=1;
 	int b=500;
+	
 	  try {
 	        while (true) {
-	        	i++;
-	            System.out.println(i);
+	        	menge++;
+	            System.out.println(this.menge);
 	            Thread.sleep(a * b);
 	        }
 	    } catch (InterruptedException e) {
