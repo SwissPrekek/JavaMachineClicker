@@ -29,6 +29,7 @@ public class Gui extends JFrame {
         JPanel specialFunctions = new JPanel();
         JPanel picture = new JPanel();
         
+        //Label
         JLabel lblStats = new JLabel("Guthaben/Stats");
         JLabel lblMachines = new JLabel("Maschinen");
         JLabel lblBank = new JLabel("Bank");
@@ -40,8 +41,8 @@ public class Gui extends JFrame {
         
     public Gui() {
     	
+    	
         //Fenster erstellen
-
     	setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("How to get rich! ");
         setSize(1000,500);
@@ -80,17 +81,8 @@ public class Gui extends JFrame {
         specialFunctions.setBorder(BorderFactory.createLineBorder(Color.black));
         specialFunctions.add(lblSpecial);
         
-        
-        
-        
+
         add(base);
-
-
-        
-        
-        
-        
-        //Zeigt das Fenster an
 
     }
 }
