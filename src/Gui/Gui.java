@@ -4,11 +4,11 @@ import javax.swing.*;
 public class Gui {
     public Gui() {
         //Fenster erstellen
-        JFrame frame = new JFrame("JavaMachineClicker");
+        JFrame frame = new JFrame("HowToBeRich");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Fügt Label hinzu
-        JLabel label = new JLabel("JavaMachineClicker");
+        //Fuegt Label hinzu
+        JLabel label = new JLabel("HowToBeRich");
         frame.getContentPane().add(label);
 
         //Zeigt das Fenster an
