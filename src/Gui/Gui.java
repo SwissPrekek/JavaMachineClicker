@@ -63,7 +63,7 @@ public class Gui extends JFrame {
         //Fenster erstellen
     	setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("How to get rich! ");
-        setSize(1000,500);
+        setSize(1000,600);
         setVisible(true);
         
         
@@ -102,6 +102,7 @@ public class Gui extends JFrame {
         
         
         //Bild
+        picture.setBorder(BorderFactory.createLineBorder(Color.black));
         picture.add(image);
         
         //Bank
