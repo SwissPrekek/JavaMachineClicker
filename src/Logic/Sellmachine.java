@@ -1,19 +1,20 @@
 package Logic;
 
 public class Sellmachine {
+RohstoffLager r;
 
-public double holzverkauf(double holzmenge) {
-	return 0;
-	
+public void holzverkauf() {
+	double holzmenge=r.getHolzmenge();
+r.delHolz();
 }
 
-public double steinverkauf(double steinmenge) {
-	return 0;
-	
+public void steinverkauf() {
+	double steinmenge=r.getSteinmenge();
+	r.delStein();
 }
 
-public double goldverkauf(double goldmenge) {
-	return 0;
-	
+public void goldverkauf(double goldmenge) {
+	double steinmenge=r.getSteinmenge();
+	r.delGold();
 }
 }
