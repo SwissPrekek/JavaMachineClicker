@@ -1,5 +1,5 @@
 package Logic;
 
 public interface RzFace {
-public void zaehlen();
+public void zaehlen(int a, int b);
 }

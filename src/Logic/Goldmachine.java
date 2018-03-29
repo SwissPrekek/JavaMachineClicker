@@ -6,12 +6,12 @@ import java.util.TimerTask;
 
 public class Goldmachine  implements RzFace {
 private double menge;
+RohstoffLager r;
 
-
-public void zaehlen() {
+public void zaehlen(int a,int b) {
 	
-	int a=1;
-	int b=500;
+	a=1;
+	b=500;
 	
 	  try {
 	        while (true) {
@@ -27,6 +27,8 @@ public void zaehlen() {
 public void AddToRohstofflager() {
 	
 }
+
+
 
 
 
