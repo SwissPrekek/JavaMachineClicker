@@ -1,17 +1,12 @@
 package Gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import javax.swing.*;        
 
@@ -25,6 +20,8 @@ public class Gui extends JFrame {
         JPanel rightUnderGrid = new JPanel();
         JPanel bankButtonsGrid = new JPanel();
         JPanel spezButtonsGrid = new JPanel();
+        JPanel machineButtonsGrid = new JPanel();
+        JPanel statsGrid = new JPanel();
         
         JPanel stats = new JPanel();
         JPanel machines = new JPanel();
@@ -45,6 +42,16 @@ public class Gui extends JFrame {
         
         JButton btnSpezUltraUpgrade = new JButton("Ultra Upgrade");
         JButton btnSpezHackingAngriff = new JButton("Hacking Angriff");
+        
+        JButton btnWoodMachine = new JButton("Holzmaschine");
+        JButton btnStoneMachine = new JButton("Stonemaschine");
+        JButton btnGoldMachine = new JButton("Holzmaschine");
+        
+        //Textfeld
+        JTextField txtStats = new JTextField();
+        
+        //Bild
+        JLabel image = new JLabel(new ImageIcon("src/gui/image_1.jpg"));
 
         
         
@@ -66,6 +73,8 @@ public class Gui extends JFrame {
         rightUnderGrid.setLayout(new GridLayout(2,1));
         bankButtonsGrid.setLayout(new GridLayout(3,1));
         spezButtonsGrid.setLayout(new GridLayout(3,1));
+        machineButtonsGrid.setLayout(new GridLayout(4,1));
+        statsGrid.setLayout(new GridLayout(2,1));
         
         
         base.add(baseGrid, BorderLayout.CENTER);
@@ -79,16 +88,44 @@ public class Gui extends JFrame {
         leftUnderGrid.add(picture);
         bank.add(bankButtonsGrid);
         specialFunctions.add(spezButtonsGrid);
+        machines.add(machineButtonsGrid);
+        stats.add(statsGrid);
         
+        
+        
+        //Stats
+        stats.setBorder(BorderFactory.createLineBorder(Color.black));
+        statsGrid.add(lblStats);
+        statsGrid.add(txtStats);
+        
+        statsGrid.setPreferredSize(new Dimension(250, 150));
+        
+        
+        //Bild
+        picture.add(image);
         
         //Bank
-        bank.setBorder(BorderFactory.createLineBorder(Color.black));
+        machines.setBorder(BorderFactory.createLineBorder(Color.black));
         bankButtonsGrid.add(lblBank);
         
         bankButtonsGrid.add(btnBankEinzahlen);
         bankButtonsGrid.add(btnBankAuszahlen);
         
         bankButtonsGrid.setPreferredSize(new Dimension(250, 150));
+        
+        
+        
+        //Maschinen
+        bank.setBorder(BorderFactory.createLineBorder(Color.black));
+        machineButtonsGrid.add(lblMachines);
+        
+        machineButtonsGrid.add(btnWoodMachine);
+        machineButtonsGrid.add(btnStoneMachine);
+        machineButtonsGrid.add(btnGoldMachine);
+        
+        machineButtonsGrid.setPreferredSize(new Dimension(250, 150));
+        
+        
         
         
         //SpezialFunktionen
@@ -99,19 +136,6 @@ public class Gui extends JFrame {
         spezButtonsGrid.add(btnSpezHackingAngriff);
         
         spezButtonsGrid.setPreferredSize(new Dimension(250, 150));
-        
-        
-        
-        stats.setBorder(BorderFactory.createLineBorder(Color.black));
-        stats.add(lblStats);
-        
-        picture.setBorder(BorderFactory.createLineBorder(Color.black));
-        picture.add(lblPicture);
-        
-        machines.setBorder(BorderFactory.createLineBorder(Color.black));
-        machines.add(lblMachines);
-        
-        
 
         add(base);
 
