@@ -2,7 +2,7 @@ package Logic;
 
 public class Woodmachine  implements RzFace{
 	private double menge;
-
+	RohstoffLager r;
 	public void zaehlen(int a,int b) {
 		a=1;
 		b=1000;
@@ -19,6 +19,6 @@ public class Woodmachine  implements RzFace{
 	}
 
 	public void AddToRohstofflager() {
-		
+		r.addHolzmenge(menge);
 	}
 }

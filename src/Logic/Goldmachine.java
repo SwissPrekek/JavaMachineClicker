@@ -25,7 +25,7 @@ public void zaehlen(int a,int b) {
 }
 
 public void AddToRohstofflager() {
-	
+	r.addGoldmenge(menge);
 }
 
 
