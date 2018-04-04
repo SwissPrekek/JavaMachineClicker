@@ -2,7 +2,7 @@ package Logic;
 
 public class Rohstoffmachine  implements RzFace{
 	private double menge;
-
+	RohstoffLager r;
 	public void zaehlen(int a,int b) {
 		a=1;
 		b=500;

@@ -2,7 +2,7 @@ package Logic;
 
 public class Stonemachine implements RzFace{
 	private double menge;
-
+	RohstoffLager r;
 	public void zaehlen(int a,int b) {
 		a=1;
 		b=1500;
@@ -19,6 +19,6 @@ public class Stonemachine implements RzFace{
 	}
 
 	public void AddToRohstofflager() {
-		
+		r.addSteinmenge(menge);
 	}
 }
