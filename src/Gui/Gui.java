@@ -181,10 +181,12 @@ public class Gui extends JFrame {
    		
    		if(ae.getSource() == btnStoneMachine) {
    			mgr.addObj(new Stonemachine());
+   			mgr.DoMachine();
    		}
    		
    		if(ae.getSource() == btnGoldMachine) {
    			mgr.addObj(new Goldmachine());
+   			mgr.DoMachine();
    		}
    		
    		
