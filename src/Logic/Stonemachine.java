@@ -1,8 +1,8 @@
 package Logic;
 
-public class Stonemachine implements RzFace{
+public class Stonemachine extends Rohstoffmachine implements RzFace {
 	private double menge;
-	RohstoffLager r;
+RohstoffLager r;
 	public void zaehlen(int a,int b) {
 		a=1;
 		b=1500;
