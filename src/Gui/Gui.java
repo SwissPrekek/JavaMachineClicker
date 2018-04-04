@@ -12,10 +12,16 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import Logic.Bank;
-import Logic.SpecialFunctions;        
+import Logic.Goldmachine;
+import Logic.Manager;
+import Logic.RzFace;
+import Logic.SpecialFunctions;
+import Logic.Stonemachine;
+import Logic.Woodmachine;        
 
 public class Gui extends JFrame {
 		Bank b;
+		Manager mgr;
 		SpecialFunctions s;
 		double TempGuthaben;
 	    
@@ -169,15 +175,16 @@ public class Gui extends JFrame {
    		}
    		
    		if(ae.getSource() == btnWoodMachine) {
-   			
+   			mgr.addObj(new Woodmachine());
+   			mgr.DoMachine();
    		}
    		
    		if(ae.getSource() == btnStoneMachine) {
-   			
+   			mgr.addObj(new Stonemachine());
    		}
    		
    		if(ae.getSource() == btnGoldMachine) {
-   			
+   			mgr.addObj(new Goldmachine());
    		}
    		
    		
