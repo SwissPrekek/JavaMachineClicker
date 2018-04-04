@@ -1,4 +1,5 @@
 package Gui;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -8,10 +9,15 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;        
+import javax.swing.*;
+
+import Logic.Bank;
+import Logic.SpecialFunctions;        
 
 public class Gui extends JFrame {
-	
+		Bank b;
+		SpecialFunctions s;
+		double TempGuthaben;
 	    
 		//Panels
 		JPanel base = new JPanel();
@@ -145,19 +151,21 @@ public class Gui extends JFrame {
     public void actionPerformed(ActionEvent ae){
 
    		if(ae.getSource() == btnBankEinzahlen) {
-   			System.out.println("Dis Mami");
+   			b.deposit(TempGuthaben);
    		}
    		
    		if(ae.getSource() == btnBankAuszahlen) {
-   			
+   			double tempguthaben=b.getGuthaben();
+   			b.withdraw(b.getGuthaben());
+   			this.TempGuthaben=this.TempGuthaben+tempguthaben;
    		}
    		
    		if(ae.getSource() == btnSpezUltraUpgrade) {
-   			
+   			s.UltraUpgrade();
    		}
    		
    		if(ae.getSource() == btnSpezHackingAngriff) {
-   			
+   			s.HackerAngriff();
    		}
    		
    		if(ae.getSource() == btnWoodMachine) {
