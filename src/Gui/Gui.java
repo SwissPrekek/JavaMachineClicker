@@ -141,4 +141,37 @@ public class Gui extends JFrame {
         add(base);
 
     }
+    
+    public void actionPerformed(ActionEvent ae){
+
+   		if(ae.getSource() == btnBankEinzahlen) {
+   			System.out.println("Dis Mami");
+   		}
+   		
+   		if(ae.getSource() == btnBankAuszahlen) {
+   			
+   		}
+   		
+   		if(ae.getSource() == btnSpezUltraUpgrade) {
+   			
+   		}
+   		
+   		if(ae.getSource() == btnSpezHackingAngriff) {
+   			
+   		}
+   		
+   		if(ae.getSource() == btnWoodMachine) {
+   			
+   		}
+   		
+   		if(ae.getSource() == btnStoneMachine) {
+   			
+   		}
+   		
+   		if(ae.getSource() == btnGoldMachine) {
+   			
+   		}
+   		
+   		
+    }
 }
