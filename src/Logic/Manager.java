@@ -14,9 +14,9 @@ objekte.add(obj);
 }
 
 public void DoMachine() {
-	Goldmachine goldm=new Goldmachine();
-	Stonemachine stonem=new Stonemachine();
-	Woodmachine woodm=new Woodmachine();
+	for(RzFace g : this.objekte) {
+		g.zaehlen();
+	}
 }
 public void DoRohstofflager() {
 	RohstoffLager rol=new RohstoffLager();
