@@ -25,7 +25,20 @@ public class Gui extends JFrame implements ActionListener {
 		SpecialFunctions s =new SpecialFunctions();
 		
 		double TempGuthaben;
+		boolean woodIsRunning;
 	    
+		private boolean isRunning() {
+			return isRunning;
+		}
+
+
+
+		private void setRunning(boolean isRunning) {
+			this.isRunning = isRunning;
+		}
+
+
+
 		//Panels
 		JPanel base = new JPanel();
         JPanel baseGrid = new JPanel();
@@ -172,6 +185,8 @@ public class Gui extends JFrame implements ActionListener {
 
     }
     
+    
+    
     public void actionPerformed(ActionEvent ae){
 
    		if(ae.getSource() == btnBankEinzahlen) {
@@ -195,6 +210,12 @@ public class Gui extends JFrame implements ActionListener {
    		}
    		
    		if(ae.getSource() == btnWoodMachine) {
+   			if(isRunning()) {
+   				setRunning(false);
+   			}
+   			else if(isRunning() == false) {
+   				setRunning(true);
+   			}
    			mgr.addObj(new Woodmachine());
    			mgr.DoMachine();
    		}

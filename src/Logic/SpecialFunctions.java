@@ -4,7 +4,7 @@ import java.util.Random;
 
 
 public class SpecialFunctions {
-Bank b;
+static Bank b = new Bank();
 public void HackerAngriff(){
 	Random rnd=new Random();
 	int rz=rnd.nextInt(2);
