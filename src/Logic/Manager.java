@@ -16,13 +16,8 @@ objekte.add(obj);
 public void DoMachine() {
 	for(RzFace g : this.objekte) {
 		g.zaehlen();
+	
 	}
 }
-public void DoRohstofflager() {
-	RohstoffLager rol=new RohstoffLager();
-}
 
-public void DoSell() {
-	Sellmachine sellm=new Sellmachine();
-}
 }

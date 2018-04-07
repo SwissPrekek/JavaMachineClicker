@@ -1,27 +1,35 @@
 package Logic;
 
-public class Goldmachine extends Rohstoffmachine implements RzFace {
-	private double menge;
-	RohstoffLager r;
+public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
+	
+	Rohstoffmachine rm;
 
+	public void run() {
+		zaehlen();
+		
+	}
+
+	
 	public void zaehlen() {
+	int a=1;
+	int	b=1500;
 		
-		int a=1;
-		int b=500;
-		
-		  try {
-		        while (true) {
-		        	menge++;
-		            System.out.println(this.menge);
-		            Thread.sleep(a * b);
+	try {
+		   while (true) {
+			   		
+			   		AddToRohstofflager(1);
+			   		//System.out.println("Holz " + this.menge);
+			   		Thread.sleep(a * b);
+			   		
 		        }
 		    } catch (InterruptedException e) {
-		        System.out.println("Fehler in der Klasse Goldmachine.java");
+		        System.out.println("Fehler in der Klasse Stonemachine.java");
 		    }
 	}
 
-	public void AddToRohstofflager() {
-		r.addGoldmenge(menge);
+	public void AddToRohstofflager(int menge) {
+		Gui.Gui.r.addGoldmenge(menge);
+		
 	}
 
 }

@@ -14,6 +14,7 @@ import javax.swing.*;
 import Logic.Bank;
 import Logic.Goldmachine;
 import Logic.Manager;
+import Logic.RohstoffLager;
 import Logic.RzFace;
 import Logic.SpecialFunctions;
 import Logic.Stonemachine;
@@ -23,11 +24,14 @@ public class Gui extends JFrame implements ActionListener {
 		Bank b;
 		Manager mgr =new Manager();
 		SpecialFunctions s =new SpecialFunctions();
+		public static RohstoffLager r = new RohstoffLager();
 		
 		double TempGuthaben;
 		boolean woodIsRunning = true;
 	    boolean stoneIsRunning = true;
 	    boolean goldIsRunning = true;
+	    
+	    Thread t;
 	    Woodmachine ins;
 	    
 	    
@@ -246,34 +250,57 @@ public class Gui extends JFrame implements ActionListener {
    		//thread instance contributes to rohstofflager by mining and adding values
    		if(ae.getSource() == btnWoodMachine) {
    			
-   			
+   			System.out.println("Holz" + r.getHolzmenge());
    			//mgr.addObj(ins);
    			//mgr.DoMachine();
    			if(isWoodIsRunning()) {
-   				ins = new Woodmachine();
-   	   			ins.start();
+   				t = new Thread(new Woodmachine());
+   				t.start();
+   				//ins = new Woodmachine();
+   	   			//ins.start();
    				setWoodIsRunning(false);
-   				//ins.interrupt();
    				
    			}
    			else if(isWoodIsRunning() == false) {
    				setWoodIsRunning(true);
-   				//ins.interrupt();
-   				ins.stop();
-   				
+   				t.stop();
+   				//ins.stop();
    			}
-   			
+
    			
    		}
    		
    		if(ae.getSource() == btnStoneMachine) {
-   			mgr.addObj(new Stonemachine());
-   			mgr.DoMachine();
+   			/*mgr.addObj(new Stonemachine());
+   			mgr.DoMachine();*/
+   			System.out.println("Stein" + r.getSteinmenge());
+   			if(isStoneIsRunning()) {
+   				t = new Thread(new Stonemachine());
+   				t.start();
+   				setStoneIsRunning(false);
+   				
+   			}
+   			else if(isStoneIsRunning() == false) {
+   				setStoneIsRunning(true);
+   				t.stop();
+   			}
+   			
    		}
    		
    		if(ae.getSource() == btnGoldMachine) {
-   			mgr.addObj(new Goldmachine());
-   			mgr.DoMachine();
+   		
+   			System.out.println("Gold" + r.getGoldmenge());
+
+   			if(isGoldIsRunning()) {
+   				t = new Thread(new Goldmachine());
+   				t.start();
+   				setGoldIsRunning(false);
+   				
+   			}
+   			else if(isGoldIsRunning() == false) {
+   				setGoldIsRunning(true);
+   				t.stop();
+   			}
    		}
    		
    		

@@ -1,16 +1,15 @@
 package Logic;
 
-public class Woodmachine extends Thread implements RzFace {
+public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 	Rohstoffmachine rm;
-	private double menge;
-	RohstoffLager r;
-	boolean cnt;
 	
 	public void run() {
 		zaehlen();
+		
 	}
 
+	
 	public void zaehlen() {
 	int a=1;
 	int	b=1500;
@@ -18,8 +17,8 @@ public class Woodmachine extends Thread implements RzFace {
 	try {
 		   while (true) {
 			   		
-			   		menge++;
-			   		System.out.println("Holz " + this.menge);
+			   		AddToRohstofflager(1);
+			   		//System.out.println("Holz " + this.menge);
 			   		Thread.sleep(a * b);
 			   		
 		        }
@@ -28,8 +27,8 @@ public class Woodmachine extends Thread implements RzFace {
 		    }
 	}
 
-	public void AddToRohstofflager() {
-		r.addHolzmenge(menge);
+	public void AddToRohstofflager(int menge) {
+		Gui.Gui.r.addHolzmenge(menge);
 		
 	}
 	
