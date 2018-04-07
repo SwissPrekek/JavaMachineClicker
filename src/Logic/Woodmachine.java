@@ -1,8 +1,15 @@
 package Logic;
 
-public class Woodmachine extends Rohstoffmachine implements RzFace {
+public class Woodmachine extends Thread implements RzFace {
+	
+	Rohstoffmachine rm;
 	private double menge;
 	RohstoffLager r;
+	boolean cnt;
+	
+	public void run() {
+		zaehlen();
+	}
 
 	public void zaehlen() {
 	int a=1;
@@ -10,10 +17,11 @@ public class Woodmachine extends Rohstoffmachine implements RzFace {
 		
 	try {
 		   while (true) {
-		        	menge++;
-		            System.out.println(this.menge);
-		            Thread.sleep(a * b);
-		            
+			   		
+			   		menge++;
+			   		System.out.println("Holz " + this.menge);
+			   		Thread.sleep(a * b);
+			   		
 		        }
 		    } catch (InterruptedException e) {
 		        System.out.println("Fehler in der Klasse Stonemachine.java");
@@ -24,4 +32,6 @@ public class Woodmachine extends Rohstoffmachine implements RzFace {
 		r.addHolzmenge(menge);
 		
 	}
+	
+
 }

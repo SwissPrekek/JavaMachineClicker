@@ -25,16 +25,45 @@ public class Gui extends JFrame implements ActionListener {
 		SpecialFunctions s =new SpecialFunctions();
 		
 		double TempGuthaben;
-		boolean woodIsRunning;
+		boolean woodIsRunning = true;
+	    boolean stoneIsRunning = true;
+	    boolean goldIsRunning = true;
+	    Woodmachine ins;
 	    
-		private boolean isRunning() {
-			return isRunning;
+	    
+
+		private boolean isWoodIsRunning() {
+			return woodIsRunning;
 		}
 
 
 
-		private void setRunning(boolean isRunning) {
-			this.isRunning = isRunning;
+		private void setWoodIsRunning(boolean woodIsRunning) {
+			this.woodIsRunning = woodIsRunning;
+		}
+
+
+
+		private boolean isStoneIsRunning() {
+			return stoneIsRunning;
+		}
+
+
+
+		private void setStoneIsRunning(boolean stoneIsRunning) {
+			this.stoneIsRunning = stoneIsRunning;
+		}
+
+
+
+		private boolean isGoldIsRunning() {
+			return goldIsRunning;
+		}
+
+
+
+		private void setGoldIsRunning(boolean goldIsRunning) {
+			this.goldIsRunning = goldIsRunning;
 		}
 
 
@@ -71,7 +100,7 @@ public class Gui extends JFrame implements ActionListener {
         
         JButton btnWoodMachine = new JButton("Holzmaschine");
         JButton btnStoneMachine = new JButton("Stonemaschine");
-        JButton btnGoldMachine = new JButton("Holzmaschine");
+        JButton btnGoldMachine = new JButton("Goldmaschine");
         
         //Textfeld
         JTextField txtStats = new JTextField();
@@ -190,18 +219,22 @@ public class Gui extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae){
 
    		if(ae.getSource() == btnBankEinzahlen) {
-   			b.deposit(TempGuthaben);
+   			//b.deposit(TempGuthaben);
+   			boolean x = true;
+   			while(x) {System.out.println("1");}
    		}
    		
    		if(ae.getSource() == btnBankAuszahlen) {
-   			double tempguthaben=b.getGuthaben();
+   			/*double tempguthaben=b.getGuthaben();
    			b.withdraw(b.getGuthaben());
-   			this.TempGuthaben=this.TempGuthaben+tempguthaben;
+   			this.TempGuthaben=this.TempGuthaben+tempguthaben; */
+   			System.out.println("2");
    		}
    		
    		if(ae.getSource() == btnSpezUltraUpgrade) {
-   			SpecialFunctions s =new SpecialFunctions();
-   			s.UltraUpgrade();
+   			/*SpecialFunctions s =new SpecialFunctions();
+   			s.UltraUpgrade();*/
+   			System.out.println("3");
    		}
    		
    		if(ae.getSource() == btnSpezHackingAngriff) {
@@ -209,15 +242,28 @@ public class Gui extends JFrame implements ActionListener {
    			s.HackerAngriff();
    		}
    		
+   		//creates a new thread, deletes it on second click
+   		//thread instance contributes to rohstofflager by mining and adding values
    		if(ae.getSource() == btnWoodMachine) {
-   			if(isRunning()) {
-   				setRunning(false);
+   			
+   			
+   			//mgr.addObj(ins);
+   			//mgr.DoMachine();
+   			if(isWoodIsRunning()) {
+   				ins = new Woodmachine();
+   	   			ins.start();
+   				setWoodIsRunning(false);
+   				//ins.interrupt();
+   				
    			}
-   			else if(isRunning() == false) {
-   				setRunning(true);
+   			else if(isWoodIsRunning() == false) {
+   				setWoodIsRunning(true);
+   				//ins.interrupt();
+   				ins.stop();
+   				
    			}
-   			mgr.addObj(new Woodmachine());
-   			mgr.DoMachine();
+   			
+   			
    		}
    		
    		if(ae.getSource() == btnStoneMachine) {
