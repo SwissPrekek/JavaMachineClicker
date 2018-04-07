@@ -19,10 +19,11 @@ import Logic.SpecialFunctions;
 import Logic.Stonemachine;
 import Logic.Woodmachine;        
 
-public class Gui extends JFrame {
+public class Gui extends JFrame implements ActionListener {
 		Bank b;
-		Manager mgr;
-		SpecialFunctions s;
+		Manager mgr =new Manager();
+		SpecialFunctions s =new SpecialFunctions();
+		
 		double TempGuthaben;
 	    
 		//Panels
@@ -149,6 +150,23 @@ public class Gui extends JFrame {
         spezButtonsGrid.add(btnSpezHackingAngriff);
         
         spezButtonsGrid.setPreferredSize(new Dimension(250, 150));
+        
+        
+        //Actionlistener hinzufügen
+        btnBankEinzahlen.addActionListener(this);
+        btnBankAuszahlen.addActionListener(this);
+        btnSpezUltraUpgrade.addActionListener(this);
+        btnSpezHackingAngriff.addActionListener(this);
+        btnWoodMachine.addActionListener(this);
+        btnStoneMachine.addActionListener(this);
+        btnGoldMachine.addActionListener(this);
+        
+        
+        
+        
+        
+        
+        //--------------------------------//
 
         add(base);
 
@@ -167,10 +185,12 @@ public class Gui extends JFrame {
    		}
    		
    		if(ae.getSource() == btnSpezUltraUpgrade) {
+   			SpecialFunctions s =new SpecialFunctions();
    			s.UltraUpgrade();
    		}
    		
    		if(ae.getSource() == btnSpezHackingAngriff) {
+   			SpecialFunctions s =new SpecialFunctions();
    			s.HackerAngriff();
    		}
    		

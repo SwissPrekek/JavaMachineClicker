@@ -1,15 +1,27 @@
 package Logic;
 
+import java.util.Random;
+
+
 public class SpecialFunctions {
+Bank b;
+public void HackerAngriff(){
+	Random rnd=new Random();
+	int rz=rnd.nextInt(2);
+	System.out.println(rz);
 	
-public boolean HackerAngriff(){
 	
-	return false;
+	if (rz==1) {
+		b.deposit(1000);	
+		System.out.println(b.getGuthaben());
+		}
+
+	else {System.out.println("nicht eins");}
 	
 }
 
-public boolean UltraUpgrade(){
-	return false;
+public void UltraUpgrade(){
+	System.out.println("hallop");
 	
 }
 }

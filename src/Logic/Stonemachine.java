@@ -5,7 +5,7 @@ public class Stonemachine extends Rohstoffmachine implements RzFace {
 RohstoffLager r;
 	public void zaehlen() {
 		int a=1;
-		int b=1500;
+		int b=1;
 		
 		  try {
 		        while (true) {
