@@ -273,6 +273,7 @@ public class Gui extends JFrame implements ActionListener {
    		if(ae.getSource() == btnStoneMachine) {
    			/*mgr.addObj(new Stonemachine());
    			mgr.DoMachine();*/
+   			
    			System.out.println("Stein" + r.getSteinmenge());
    			if(isStoneIsRunning()) {
    				t = new Thread(new Stonemachine());
