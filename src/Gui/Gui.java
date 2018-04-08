@@ -249,24 +249,26 @@ public class Gui extends JFrame implements ActionListener {
    		//creates a new thread, deletes it on second click
    		//thread instance contributes to rohstofflager by mining and adding values
    		if(ae.getSource() == btnWoodMachine) {
+   			ins = new Woodmachine();
    			
-   			System.out.println("Holz" + r.getHolzmenge());
-   			//mgr.addObj(ins);
-   			//mgr.DoMachine();
-   			if(isWoodIsRunning()) {
-   				t = new Thread(new Woodmachine());
-   				t.start();
-   				//ins = new Woodmachine();
-   	   			//ins.start();
-   				setWoodIsRunning(false);
+   			
+   			if(isWoodIsRunning()==true) {
+   	   			System.out.println(Manager.r.getHolzmenge());
+   				mgr.addObj(ins);
+   				mgr.addObj(ins);
+   	   			mgr.DoMachine();
+   	   		    setWoodIsRunning(false);
+   	   		    //mgr.removeObj(ins);
    				
    			}
    			else if(isWoodIsRunning() == false) {
+   				/*mgr.removeObj(Manager.objekte.get(0));
+   				System.out.println(Manager.objekte.get(0));*/
+   				
+   				mgr.kill();
    				setWoodIsRunning(true);
-   				t.stop();
-   				//ins.stop();
    			}
-
+   			
    			
    		}
    		
@@ -279,6 +281,7 @@ public class Gui extends JFrame implements ActionListener {
    				t = new Thread(new Stonemachine());
    				t.start();
    				setStoneIsRunning(false);
+   				
    				
    			}
    			else if(isStoneIsRunning() == false) {

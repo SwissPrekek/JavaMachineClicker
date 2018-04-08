@@ -3,6 +3,7 @@ package Logic;
 public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 	Rohstoffmachine rm;
+	public static  boolean state = true;
 	
 	public void run() {
 		zaehlen();
@@ -28,9 +29,24 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	}
 
 	public void AddToRohstofflager(int menge) {
-		Gui.Gui.r.addHolzmenge(menge);
+		Logic.Manager.r.addHolzmenge(menge);
 		
 	}
+
+
+	public boolean isRunning() {
+		return state;
+	}
+
+
+	public void setRunning(boolean state) {
+		Woodmachine.state = state;
+	}
 	
+	
+	public Woodmachine newObj() {
+		
+		return new Woodmachine();
+	}
 
 }
