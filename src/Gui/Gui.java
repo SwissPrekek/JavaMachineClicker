@@ -118,6 +118,11 @@ public class Gui extends JFrame implements ActionListener {
         JButton btnStoneMachine = new JButton("Stonemaschine");
         JButton btnGoldMachine = new JButton("Goldmaschine");
         
+        
+        JButton btnWoodStop = new JButton("StopWood");
+        JButton btnStoneStop = new JButton("StopStone");
+        JButton btnGoldStop = new JButton("StopGold");
+        
         //Textfeld
         JTextField txtStats = new JTextField();
         
@@ -208,6 +213,11 @@ public class Gui extends JFrame implements ActionListener {
         machineButtonsGrid.add(btnStoneMachine);
         machineButtonsGrid.add(btnGoldMachine);
         
+        machineButtonsGrid.add(btnWoodStop);
+        machineButtonsGrid.add(btnStoneStop);
+        machineButtonsGrid.add(btnGoldStop);
+        
+        
         machineButtonsGrid.setPreferredSize(new Dimension(250, 150));
         
         
@@ -231,6 +241,10 @@ public class Gui extends JFrame implements ActionListener {
         btnWoodMachine.addActionListener(this);
         btnStoneMachine.addActionListener(this);
         btnGoldMachine.addActionListener(this);
+        
+        btnWoodStop.addActionListener(this);
+        btnStoneStop.addActionListener(this);
+        btnGoldStop.addActionListener(this);
         
         
         
@@ -278,91 +292,82 @@ public class Gui extends JFrame implements ActionListener {
    			this.print();
    		}
    		
-   		//creates a new thread, deletes it on second click
-   		//thread instance contributes to rohstofflager by mining and adding values
+   		
    		if(ae.getSource() == btnWoodMachine) {
+   			if(woodi==1){
    			
-   			
-			if(woodPressed==false && woodi==1){
-   			this.setWoodPressed(true);
    			mgr.addObj(new Woodmachine());
+   			mgr.setRunningTrue("Wood");
+   			woodi=2;
    			mgr.DoMachine();
-   			
-   			woodi++;
    			}
 			
-			if(woodPressed==true && woodi==2){
-	   			this.setWoodPressed(false);
-	   		
+			else if(woodi==2){
+	   			
+	   			mgr.setRunningTrue("Wood");
 	   			mgr.DoMachine();
 	   		
 	   			
-	   			}
-   			
-   			else if(woodPressed==false){
-   				this.setWoodPressed(true);
-   				mgr.setRunning();
-   			}
-   			
-   			
-   			
+	   			}	
    		}
    		
    		if(ae.getSource() == btnStoneMachine) {
    		
    			
-			if(stonePressed==true && stonei==1){
-   			this.setStonePressed(false);
+			if(stonei==1){
+   			
    			mgr.addObj(new Stonemachine());
+   			mgr.setRunningTrue("Stone");
+   			stonei=2;
    			mgr.DoMachine();
    			
-   			stonei++;
+   			
    			}
 			
-			if(stonePressed==true && stonei==2){
-	   			this.setStonePressed(false);
-	   		
+			else if(stonei==2){
+	   			
+	   			mgr.setRunningTrue("Stone");
 	   			mgr.DoMachine();
 	   			
 	   			
 	   			}
-   			
-   			else if(stonePressed==false){
-   				this.setStonePressed(true);
-   				mgr.setRunning();
-   			}
+   		
    		}
    		
    		if(ae.getSource() == btnGoldMachine) {
    			
-			if(goldPressed==true && goldi==1){
-   			this.setGoldPressed(false);
+			if(goldi==1){
+   			
    			mgr.addObj(new Goldmachine());
+   			mgr.setRunningTrue("Gold");
+   			goldi=2;
    			mgr.DoMachine();
    			
-   			goldi++;
+   			
    			}
 			
-			if(goldPressed==true && goldi==2){
+			else if(goldi==2){
 	   			this.setGoldPressed(false);
-	   		
+	   			
+	   			mgr.setRunningTrue("Gold");
 	   			mgr.DoMachine();
 	   			
 	   			
 	   			}
-			
-			
-   			
-   			else if(goldPressed==false){
-   				this.setGoldPressed(true);
-   				mgr.setRunning();
-   			}
-			
-			
-		
-   		
    		}
    		
+   		
+   		if(ae.getSource() == btnWoodStop) {
+   			mgr.setRunningFalse("Wood");
+   		}
+   		
+   		if(ae.getSource() == btnStoneStop) {
+   			mgr.setRunningFalse("Stone");
+   		}
+   		
+   		if(ae.getSource() == btnGoldStop) {
+   			mgr.setRunningFalse("Gold");
+   		}
    		
    	
    		
