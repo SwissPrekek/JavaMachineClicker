@@ -36,9 +36,7 @@ public class Gui extends JFrame implements ActionListener {
 		boolean stonePressed=false;
 		boolean goldPressed=false;
 
-	public void print(){
-			System.out.println("-------------------");
-		}
+
 
 
 		public boolean isWoodPressed() {
@@ -260,7 +258,7 @@ public class Gui extends JFrame implements ActionListener {
    			this.setWoodPressed(true);
    			mgr.addObj(new Woodmachine());
    			mgr.DoMachine();
-   			this.print();
+   			
    			woodi++;
    			}
 			
@@ -268,7 +266,7 @@ public class Gui extends JFrame implements ActionListener {
 	   			this.setWoodPressed(true);
 	   		
 	   			mgr.DoMachine();
-	   			this.print();
+	   		
 	   			
 	   			}
    			
@@ -288,7 +286,7 @@ public class Gui extends JFrame implements ActionListener {
    			this.setStonePressed(true);
    			mgr.addObj(new Stonemachine());
    			mgr.DoMachine();
-   			this.print();
+   			
    			stonei++;
    			}
 			
@@ -296,7 +294,7 @@ public class Gui extends JFrame implements ActionListener {
 	   			this.setStonePressed(true);
 	   		
 	   			mgr.DoMachine();
-	   			this.print();
+	   			
 	   			
 	   			}
    			
@@ -312,7 +310,7 @@ public class Gui extends JFrame implements ActionListener {
    			this.setGoldPressed(true);
    			mgr.addObj(new Goldmachine());
    			mgr.DoMachine();
-   			this.print();
+   			
    			goldi++;
    			}
 			
@@ -320,7 +318,7 @@ public class Gui extends JFrame implements ActionListener {
 	   			this.setGoldPressed(true);
 	   		
 	   			mgr.DoMachine();
-	   			this.print();
+	   			
 	   			
 	   			}
 			
