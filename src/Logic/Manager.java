@@ -45,7 +45,7 @@ public void setRunning(){
 }
 
 public void DoMachine() {
-	
+	//hashmap
 	for(RzFace g : this.objekte) {
 		System.out.println(g);
 		
