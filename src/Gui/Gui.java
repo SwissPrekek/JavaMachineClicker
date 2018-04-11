@@ -22,7 +22,9 @@ import Logic.Woodmachine;
 
 public class Gui extends JFrame implements ActionListener {
 		Bank b;
-		int i=1;
+		int woodi=1;
+		int stonei=1;
+		int goldi=1;
 		Manager mgr =new Manager();
 		SpecialFunctions s =new SpecialFunctions();
 		public static RohstoffLager r = new RohstoffLager();
@@ -31,9 +33,12 @@ public class Gui extends JFrame implements ActionListener {
 
 	    
 		boolean woodPressed=false;
-	
+		boolean stonePressed=false;
+		boolean goldPressed=false;
 
-	    
+	public void print(){
+			System.out.println("-------------------");
+		}
 
 
 		public boolean isWoodPressed() {
@@ -44,6 +49,30 @@ public class Gui extends JFrame implements ActionListener {
 
 		public void setWoodPressed(boolean woodPressed) {
 			this.woodPressed = woodPressed;
+		}
+
+
+
+		public boolean isStonePressed() {
+			return stonePressed;
+		}
+
+
+
+		public void setStonePressed(boolean stonePressed) {
+			this.stonePressed = stonePressed;
+		}
+
+
+
+		public boolean isGoldPressed() {
+			return goldPressed;
+		}
+
+
+
+		public void setGoldPressed(boolean goldPressed) {
+			this.goldPressed = goldPressed;
 		}
 
 
@@ -227,13 +256,21 @@ public class Gui extends JFrame implements ActionListener {
    		if(ae.getSource() == btnWoodMachine) {
    			
    			
-			if(woodPressed==false && i==1){
+			if(woodPressed==false && woodi==1){
    			this.setWoodPressed(true);
    			mgr.addObj(new Woodmachine());
    			mgr.DoMachine();
-   			System.out.println(Manager.r.getHolzmenge());
-   			
+   			this.print();
+   			woodi++;
    			}
+			
+			if(woodPressed==false && woodi==2){
+	   			this.setWoodPressed(true);
+	   		
+	   			mgr.DoMachine();
+	   			this.print();
+	   			
+	   			}
    			
    			else if(woodPressed==true){
    				this.setWoodPressed(false);
@@ -247,12 +284,60 @@ public class Gui extends JFrame implements ActionListener {
    		if(ae.getSource() == btnStoneMachine) {
    		
    			
+			if(stonePressed==false && stonei==1){
+   			this.setStonePressed(true);
+   			mgr.addObj(new Stonemachine());
+   			mgr.DoMachine();
+   			this.print();
+   			stonei++;
+   			}
+			
+			if(stonePressed==false && stonei==2){
+	   			this.setStonePressed(true);
+	   		
+	   			mgr.DoMachine();
+	   			this.print();
+	   			
+	   			}
+   			
+   			else if(stonePressed==true){
+   				this.setStonePressed(false);
+   				mgr.setRunning();
+   			}
    		}
    		
    		if(ae.getSource() == btnGoldMachine) {
-   		
+   			
+			if(goldPressed==false && goldi==1){
+   			this.setGoldPressed(true);
+   			mgr.addObj(new Goldmachine());
+   			mgr.DoMachine();
+   			this.print();
+   			goldi++;
+   			}
+			
+			if(goldPressed==false && goldi==2){
+	   			this.setGoldPressed(true);
+	   		
+	   			mgr.DoMachine();
+	   			this.print();
+	   			
+	   			}
+			
+			
+   			
+   			else if(goldPressed==true){
+   				this.setGoldPressed(false);
+   				mgr.setRunning();
+   			}
+			
+			
+		
    		
    		}
+   		
+   		
+   	
    		
    		
     }

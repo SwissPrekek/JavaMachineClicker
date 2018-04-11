@@ -20,17 +20,18 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 		   while (state==true) {
 			   		
 			   		AddToRohstofflager(1);
-			   		//System.out.println("Holz " + this.menge);
+
+
 			   		Thread.sleep(a * b);
 			   		
 		        }
 		    } catch (InterruptedException e) {
-		        System.out.println("Fehler in der Klasse Stonemachine.java");
+		        System.out.println("Fehler in der Klasse Wood.java");
 		    }
 	}
 
 	public void AddToRohstofflager(int menge) {
-		Logic.Manager.r.addHolzmenge(menge);
+		Manager.r.addHolzmenge(menge);
 		
 	}
 

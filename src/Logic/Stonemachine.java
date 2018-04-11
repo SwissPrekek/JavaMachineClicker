@@ -1,7 +1,7 @@
 package Logic;
 
 public class Stonemachine extends Rohstoffmachine implements RzFace, Runnable {	
-	
+	public static  boolean state = true;
 	
 public void run() {
 	zaehlen();
@@ -11,13 +11,13 @@ public void run() {
 
 public void zaehlen() {
 int a=1;
-int	b=1500;
+int	b=500;
 	
 try {
-	   while (true) {
+	   while (state==true) {
 		   		
 		   		AddToRohstofflager(1);
-		   		//System.out.println("Holz " + this.menge);
+
 		   		Thread.sleep(a * b);
 		   		
 	        }
@@ -27,8 +27,18 @@ try {
 }
 
 public void AddToRohstofflager(int menge) {
-	Gui.Gui.r.addSteinmenge(menge);
+	Manager.r.addSteinmenge(menge);
 	
+}
+
+
+public boolean isRunning() {
+	return state;
+}
+
+
+public void setRunning(boolean state) {
+	Woodmachine.state = state;
 }
 
 }

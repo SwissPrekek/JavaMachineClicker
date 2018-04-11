@@ -3,7 +3,7 @@ package Logic;
 public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 	Rohstoffmachine rm;
-
+	public static  boolean state = true;
 	public void run() {
 		zaehlen();
 		
@@ -15,10 +15,10 @@ public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
 	int	b=1500;
 		
 	try {
-		   while (true) {
+		   while (state==true) {
 			   		
 			   		AddToRohstofflager(1);
-			   		//System.out.println("Holz " + this.menge);
+
 			   		Thread.sleep(a * b);
 			   		
 		        }
@@ -28,8 +28,17 @@ public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
 	}
 
 	public void AddToRohstofflager(int menge) {
-		Gui.Gui.r.addGoldmenge(menge);
+		Logic.Manager.r.addGoldmenge(menge);
 		
+	}
+	
+	public boolean isRunning() {
+		return state;
+	}
+
+
+	public void setRunning(boolean state) {
+		Woodmachine.state = state;
 	}
 
 }

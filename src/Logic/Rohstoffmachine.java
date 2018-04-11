@@ -27,10 +27,6 @@ public class Rohstoffmachine implements RzFace{
 		
 	}
 
-	@Override
-	public Runnable newObj() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 }
