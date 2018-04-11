@@ -98,13 +98,15 @@ public class Gui extends JFrame implements ActionListener {
         JLabel lblSpecial = new JLabel("Spezialaktionen");
         JLabel lblPicture = new JLabel("Picture");
         
-        JLabel lblWoodMachineText = new JLabel("WoodMachine: ");
-        JLabel lblStoneMachineText = new JLabel("StoneMachine: ");
-        JLabel lblGoldMachineText = new JLabel("GoldMachine: ");
+        JLabel lblWoodMachineText = new JLabel("Holzmenge: ");
+        JLabel lblStoneMachineText = new JLabel("Steinmenge: ");
+        JLabel lblGoldMachineText = new JLabel("Goldmenge: ");
+        JLabel lblGuthabenText = new JLabel("Guthaben: ");
         
         JLabel lblWoodMachine = new JLabel("0.0");
         JLabel lblStoneMachine = new JLabel("0.0");
         JLabel lblGoldMachine = new JLabel("0.0");
+        JLabel lblGuthaben = new JLabel("0.0");
         
         //Buttons
         JButton btnBankEinzahlen = new JButton("Einzahlen");
@@ -144,7 +146,7 @@ public class Gui extends JFrame implements ActionListener {
         bankButtonsGrid.setLayout(new GridLayout(3,1));
         spezButtonsGrid.setLayout(new GridLayout(3,1));
         machineButtonsGrid.setLayout(new GridLayout(4,1));
-        statsGrid.setLayout(new GridLayout(4,2));
+        statsGrid.setLayout(new GridLayout(5,2));
         
         
         base.add(baseGrid, BorderLayout.CENTER);
@@ -175,6 +177,11 @@ public class Gui extends JFrame implements ActionListener {
         
         statsGrid.add(lblGoldMachineText);
         statsGrid.add(lblGoldMachine);
+        
+        statsGrid.add(lblGuthabenText);
+        statsGrid.add(lblGuthaben);
+        
+        
 
         statsGrid.setPreferredSize(new Dimension(250, 150));
         
