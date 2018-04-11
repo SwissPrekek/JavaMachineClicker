@@ -38,7 +38,6 @@ public class Gui extends JFrame implements ActionListener {
 
 
 
-
 		public boolean isWoodPressed() {
 			return woodPressed;
 		}
@@ -125,7 +124,7 @@ public class Gui extends JFrame implements ActionListener {
         //Bild
         JLabel image = new JLabel(new ImageIcon("src/gui/image_1.jpg"));
 
-        
+      
         
         
         
@@ -244,7 +243,15 @@ public class Gui extends JFrame implements ActionListener {
 
     }
     
-    
+    public void print(){
+
+    	
+    	lblWoodMachine.setText(Double.toString(Manager.r.getHolzmenge()));
+    	lblStoneMachine.setText(Double.toString(Manager.r.getSteinmenge()));
+    	lblGoldMachine.setText(Double.toString(Manager.r.getGoldmenge()));
+
+    	
+    }
     
     public void actionPerformed(ActionEvent ae){
 
@@ -268,8 +275,7 @@ public class Gui extends JFrame implements ActionListener {
    		}
    		
    		if(ae.getSource() == btnSpezHackingAngriff) {
-   			SpecialFunctions s =new SpecialFunctions();
-   			s.HackerAngriff();
+   			this.print();
    		}
    		
    		//creates a new thread, deletes it on second click
@@ -285,16 +291,16 @@ public class Gui extends JFrame implements ActionListener {
    			woodi++;
    			}
 			
-			if(woodPressed==false && woodi==2){
-	   			this.setWoodPressed(true);
+			if(woodPressed==true && woodi==2){
+	   			this.setWoodPressed(false);
 	   		
 	   			mgr.DoMachine();
 	   		
 	   			
 	   			}
    			
-   			else if(woodPressed==true){
-   				this.setWoodPressed(false);
+   			else if(woodPressed==false){
+   				this.setWoodPressed(true);
    				mgr.setRunning();
    			}
    			
@@ -305,40 +311,40 @@ public class Gui extends JFrame implements ActionListener {
    		if(ae.getSource() == btnStoneMachine) {
    		
    			
-			if(stonePressed==false && stonei==1){
-   			this.setStonePressed(true);
+			if(stonePressed==true && stonei==1){
+   			this.setStonePressed(false);
    			mgr.addObj(new Stonemachine());
    			mgr.DoMachine();
    			
    			stonei++;
    			}
 			
-			if(stonePressed==false && stonei==2){
-	   			this.setStonePressed(true);
+			if(stonePressed==true && stonei==2){
+	   			this.setStonePressed(false);
 	   		
 	   			mgr.DoMachine();
 	   			
 	   			
 	   			}
    			
-   			else if(stonePressed==true){
-   				this.setStonePressed(false);
+   			else if(stonePressed==false){
+   				this.setStonePressed(true);
    				mgr.setRunning();
    			}
    		}
    		
    		if(ae.getSource() == btnGoldMachine) {
    			
-			if(goldPressed==false && goldi==1){
-   			this.setGoldPressed(true);
+			if(goldPressed==true && goldi==1){
+   			this.setGoldPressed(false);
    			mgr.addObj(new Goldmachine());
    			mgr.DoMachine();
    			
    			goldi++;
    			}
 			
-			if(goldPressed==false && goldi==2){
-	   			this.setGoldPressed(true);
+			if(goldPressed==true && goldi==2){
+	   			this.setGoldPressed(false);
 	   		
 	   			mgr.DoMachine();
 	   			
@@ -347,8 +353,8 @@ public class Gui extends JFrame implements ActionListener {
 			
 			
    			
-   			else if(goldPressed==true){
-   				this.setGoldPressed(false);
+   			else if(goldPressed==false){
+   				this.setGoldPressed(true);
    				mgr.setRunning();
    			}
 			

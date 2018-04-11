@@ -11,7 +11,7 @@ public void run() {
 
 public void zaehlen() {
 int a=1;
-int	b=500;
+int	b=1500;
 	
 try {
 	   while (state==true) {

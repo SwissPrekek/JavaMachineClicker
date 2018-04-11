@@ -1,8 +1,11 @@
 package Logic;
 
+
+
 public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 	Rohstoffmachine rm;
+
 	public static  boolean state = true;
 	
 	public void run() {
@@ -20,8 +23,8 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 		   while (state==true) {
 			   		
 			   		AddToRohstofflager(1);
-
-
+			   		
+			   		
 			   		Thread.sleep(a * b);
 			   		
 		        }
