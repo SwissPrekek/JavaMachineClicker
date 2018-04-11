@@ -18,10 +18,23 @@ public void removeObj(RzFace obj) {
 	objekte.remove(obj);
 }
 
-public void kill() {
-	t.stop();
-}
+public void setRunning(){
+	for(RzFace g : this.objekte) {
+		
+		if (g instanceof  Woodmachine) {
+			g.setRunning(false);
+		}
 
+		
+		else{
+		 System.out.println("keine Woodmachine");
+		}
+	
+}
+	
+	
+
+}
 
 public void DoMachine() {
 	
@@ -36,7 +49,10 @@ public void DoMachine() {
 			//System.out.println(r.getHolzmenge());
 			if(this.objekte.get(this.objekte.size()-1).toString().contains("Woodmachine")) {
 				t = new Thread(new Woodmachine());
+				g.setRunning(true);
 				t.start();
+				
+				
 			}
 			
 			else if(this.objekte.get(this.objekte.size()-1).toString().contains("Stonemachine")) {
@@ -52,8 +68,7 @@ public void DoMachine() {
 				t.stop();
 			}
 			
-			
-			System.out.println(this.objekte);
+	
 			
 		}
 	}

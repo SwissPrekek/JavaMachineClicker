@@ -22,52 +22,28 @@ import Logic.Woodmachine;
 
 public class Gui extends JFrame implements ActionListener {
 		Bank b;
+		int i=1;
 		Manager mgr =new Manager();
 		SpecialFunctions s =new SpecialFunctions();
 		public static RohstoffLager r = new RohstoffLager();
 		
 		double TempGuthaben;
-		boolean woodIsRunning = true;
-	    boolean stoneIsRunning = true;
-	    boolean goldIsRunning = true;
+
 	    
-	    Thread t;
-	    Woodmachine ins;
-	    
+		boolean woodPressed=false;
+	
+
 	    
 
-		private boolean isWoodIsRunning() {
-			return woodIsRunning;
+
+		public boolean isWoodPressed() {
+			return woodPressed;
 		}
 
 
 
-		private void setWoodIsRunning(boolean woodIsRunning) {
-			this.woodIsRunning = woodIsRunning;
-		}
-
-
-
-		private boolean isStoneIsRunning() {
-			return stoneIsRunning;
-		}
-
-
-
-		private void setStoneIsRunning(boolean stoneIsRunning) {
-			this.stoneIsRunning = stoneIsRunning;
-		}
-
-
-
-		private boolean isGoldIsRunning() {
-			return goldIsRunning;
-		}
-
-
-
-		private void setGoldIsRunning(boolean goldIsRunning) {
-			this.goldIsRunning = goldIsRunning;
+		public void setWoodPressed(boolean woodPressed) {
+			this.woodPressed = woodPressed;
 		}
 
 
@@ -249,62 +225,33 @@ public class Gui extends JFrame implements ActionListener {
    		//creates a new thread, deletes it on second click
    		//thread instance contributes to rohstofflager by mining and adding values
    		if(ae.getSource() == btnWoodMachine) {
-   			ins = new Woodmachine();
    			
    			
-   			if(isWoodIsRunning()==true) {
-   	   			System.out.println(Manager.r.getHolzmenge());
-   				mgr.addObj(ins);
-   				mgr.addObj(ins);
-   	   			mgr.DoMachine();
-   	   		    setWoodIsRunning(false);
-   	   		    //mgr.removeObj(ins);
-   				
+			if(woodPressed==false && i==1){
+   			this.setWoodPressed(true);
+   			mgr.addObj(new Woodmachine());
+   			mgr.DoMachine();
+   			System.out.println(Manager.r.getHolzmenge());
+   			
    			}
-   			else if(isWoodIsRunning() == false) {
-   				/*mgr.removeObj(Manager.objekte.get(0));
-   				System.out.println(Manager.objekte.get(0));*/
-   				
-   				mgr.kill();
-   				setWoodIsRunning(true);
+   			
+   			else if(woodPressed==true){
+   				this.setWoodPressed(false);
+   				mgr.setRunning();
    			}
+   			
    			
    			
    		}
    		
    		if(ae.getSource() == btnStoneMachine) {
-   			/*mgr.addObj(new Stonemachine());
-   			mgr.DoMachine();*/
-   			
-   			System.out.println("Stein" + r.getSteinmenge());
-   			if(isStoneIsRunning()) {
-   				t = new Thread(new Stonemachine());
-   				t.start();
-   				setStoneIsRunning(false);
-   				
-   				
-   			}
-   			else if(isStoneIsRunning() == false) {
-   				setStoneIsRunning(true);
-   				t.stop();
-   			}
+   		
    			
    		}
    		
    		if(ae.getSource() == btnGoldMachine) {
    		
-   			System.out.println("Gold" + r.getGoldmenge());
-
-   			if(isGoldIsRunning()) {
-   				t = new Thread(new Goldmachine());
-   				t.start();
-   				setGoldIsRunning(false);
-   				
-   			}
-   			else if(isGoldIsRunning() == false) {
-   				setGoldIsRunning(true);
-   				t.stop();
-   			}
+   		
    		}
    		
    		

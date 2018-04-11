@@ -8,6 +8,7 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	public void run() {
 		zaehlen();
 		
+		
 	}
 
 	
@@ -16,7 +17,7 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	int	b=1500;
 		
 	try {
-		   while (true) {
+		   while (state==true) {
 			   		
 			   		AddToRohstofflager(1);
 			   		//System.out.println("Holz " + this.menge);
@@ -44,9 +45,7 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	}
 	
 	
-	public Woodmachine newObj() {
-		
-		return new Woodmachine();
-	}
+
+
 
 }
