@@ -1,7 +1,8 @@
 package Logic;
 
 public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
-	
+	private int a=4;
+	private int	b=1500;
 	Rohstoffmachine rm;
 	public static  boolean state = true;
 
@@ -12,8 +13,7 @@ public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
 
 	
 	public void zaehlen() {
-	int a=1;
-	int	b=6000;
+
 		
 	try {
 		   while (state==true) {
@@ -33,13 +33,8 @@ public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
 		
 	}
 	
-	public boolean isRunning() {
-		return state;
-	}
 
 
-	public void setRunning(boolean state) {
-		Woodmachine.state = state;
-	}
+
 
 }

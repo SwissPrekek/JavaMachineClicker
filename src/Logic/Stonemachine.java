@@ -2,7 +2,8 @@ package Logic;
 
 public class Stonemachine extends Rohstoffmachine implements RzFace, Runnable {	
 	public static  boolean state = true;
-
+	private int	a=4;
+	private int	b=250;
 	
 public void run() {
 	zaehlen();
@@ -11,8 +12,7 @@ public void run() {
 
 
 public void zaehlen() {
-int a=1;
-int	b=1000;
+
 	
 try {
 	   while (state==true) {
@@ -41,5 +41,7 @@ public boolean isRunning() {
 public void setRunning(boolean state) {
 	Woodmachine.state = state;
 }
+
+
 
 }

@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.*;
 
@@ -86,7 +88,9 @@ public class Gui extends JFrame implements ActionListener {
         
         //Bild
         JLabel image = new JLabel(new ImageIcon("src/gui/image_1.jpg"));
-
+        
+        
+        
       
         
         
@@ -208,84 +212,64 @@ public class Gui extends JFrame implements ActionListener {
         add(base);
         
      
+        Timer t = new Timer();
+        TimerTask guiUpdate = new TimerTask() {
+        	public void run() {
+            	lblWoodMachine.setText(Double.toString(Manager.r.getHolzmenge()));
+            	lblStoneMachine.setText(Double.toString(Manager.r.getSteinmenge()));
+            	lblGoldMachine.setText(Double.toString(Manager.r.getGoldmenge()));
+        	}
+        };
+        t.schedule(guiUpdate,1,20);
+        
+        TimerTask sell = new TimerTask() {
+        	public void run() {
+        		
+        		if (Manager.r.getHolzmenge()>=10000) {
+        			Manager.r.HolzToSell(1);
+				}
+        		
+        		if (Manager.r.getSteinmenge()>=10000) {
+        			Manager.r.SteinToSell(1);
+				}
+        		
+        		if (Manager.r.getGoldmenge()>=10000) {
+        			Manager.r.GoldToSell(1);
+				}          	
+        	}
+        };        
+        t.schedule(sell,2000,2000);
 
+        
+        
+        
+        TimerTask level = new TimerTask() {
+        	public void run() {
+        		if (TempGuthaben>=20) {
+        			imagePicker(1);
+				}
+        		if (TempGuthaben>=100) {
+        			imagePicker(1);
+				}
+        		if (TempGuthaben>=70) {
+        			imagePicker(1);
+				}
+        		if (TempGuthaben>=80) {
+        			imagePicker(1);
+				}
+        		if (TempGuthaben>=20000) {
+        			imagePicker(1);
+				}
+        		
+        	}
+        };
+        t.schedule(level,1000,1000);
     }
     
-    public void print(){
-
-    	
-    	lblWoodMachine.setText(Double.toString(Manager.r.getHolzmenge()));
-    	lblStoneMachine.setText(Double.toString(Manager.r.getSteinmenge()));
-    	lblGoldMachine.setText(Double.toString(Manager.r.getGoldmenge()));
-
-    	
-    }
     
-    public void actionPerformed(ActionEvent ae){
-
-   		if(ae.getSource() == btnBankEinzahlen) {
-   			banc.deposit(TempGuthaben);
-   		}
-   		
-   		if(ae.getSource() == btnBankAuszahlen) {
-   			this.TempGuthaben=this.TempGuthaben+banc.getGuthaben();
-   			banc.withdraw();
-   		}
-   		
-   		if(ae.getSource() == btnSpezUltraUpgrade) {
-   			/*SpecialFunctions s =new SpecialFunctions();
-   			s.UltraUpgrade();*/
-   			System.out.println("3");
-   		}
-   		
-   		if(ae.getSource() == btnSpezHackingAngriff) {
-   			this.print();
-   		}
-   		
-   		
-   		if(ae.getSource() == btnWoodMachine && woodi == 1 && this.TempGuthaben > 800) {
-   			
-   			
-   			mgr.addObj(new Woodmachine());
-   			
-   			woodi=2;
-   			mgr.DoMachine(1);
-   		
-   			}else if(ae.getSource() == btnWoodMachine && woodi == 1 && this.TempGuthaben < 800){
-   				lblStatus.setText("Guthaben für Holzmachine zu niedrig!");
-   			}
-   		
-   		if(ae.getSource() == btnStoneMachine && stonei==1 && this.TempGuthaben > 2500) {
-   		
-   			
-			
-   			
-   			mgr.addObj(new Stonemachine());
-   			
-   			stonei=2;
-   			mgr.DoMachine(2);   			
-   		}else if(ae.getSource() == btnStoneMachine && stonei == 1 && this.TempGuthaben < 2500){
-				lblStatus.setText("Guthaben für Stonemachine zu niedrig!");
-				
-		}
-   		
-   		if(ae.getSource() == btnGoldMachine && goldi==1 && this.TempGuthaben > 10000) {
-   			
-			
-   			
-   			mgr.addObj(new Goldmachine());
-   			
-   			goldi=2;
-   			mgr.DoMachine(3); 			
-   			
-   		}else if(ae.getSource() == btnGoldMachine && goldi == 1 && this.TempGuthaben < 10000){
-			lblStatus.setText("Guthaben für Goldmachine zu niedrig!");
-			
-		}
-			
-    }
     
-   		
+    
+    //Imagepicker
     public void imagePicker(int imageNumber){
 
     	switch (imageNumber) {
@@ -304,8 +288,94 @@ public class Gui extends JFrame implements ActionListener {
 				
     	case 5: image.setIcon(new ImageIcon("src/gui/level_5.jpg"));
 				break;
+				
+		default: image.setIcon(new ImageIcon("src/gui/image_1.jpg"));
+				break;
     	}
     }
+    
+    
+    
+    public void actionPerformed(ActionEvent ae){
+
+   		if(ae.getSource() == btnBankEinzahlen) {
+   			banc.deposit(TempGuthaben);
+   			this.TempGuthaben=0;
+   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   		}
+   		
+   		if(ae.getSource() == btnBankAuszahlen) {
+   			this.TempGuthaben=this.TempGuthaben+banc.getGuthaben();
+   			banc.withdraw();
+   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   		}
+   		
+   		if(ae.getSource() == btnSpezUltraUpgrade) {
+   			Manager.r.HolzToSell(4);
+   			Manager.r.SteinToSell(4);
+   			Manager.r.GoldToSell(4);
+   			
+   		}
+   		
+   		if(ae.getSource() == btnSpezHackingAngriff) {
+   		
+   		}
+   		
+   		
+   		if(ae.getSource() == btnWoodMachine && woodi == 1 && this.TempGuthaben > 800) {
+   			
+   			
+   			mgr.addObj(new Woodmachine());
+   			
+   			woodi=2;
+   			mgr.DoMachine(1);
+   			this.TempGuthaben=this.TempGuthaben-800;
+   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   			
+   			
+   			}
+   		else if(ae.getSource() == btnWoodMachine && woodi == 1 && this.TempGuthaben < 800){
+   				lblStatus.setText("Guthaben für Holzmachine zu niedrig!");
+   			}
+   		
+   		if(ae.getSource() == btnStoneMachine && stonei==1 && this.TempGuthaben > 2500) {
+   		
+   			
+			
+   			
+   			mgr.addObj(new Stonemachine());
+   			
+   			stonei=2;
+   			mgr.DoMachine(2);  
+   			this.TempGuthaben=this.TempGuthaben-2500;
+   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   			
+   		}
+   		else if(ae.getSource() == btnStoneMachine && stonei == 1 && this.TempGuthaben < 2500){
+				lblStatus.setText("Guthaben für Stonemachine zu niedrig!");
+				
+		}
+   		
+   		if(ae.getSource() == btnGoldMachine && goldi==1 && this.TempGuthaben > 10000) {
+   			
+			
+   			
+   			mgr.addObj(new Goldmachine());
+   			
+   			goldi=2;
+   			mgr.DoMachine(3); 			
+   			this.TempGuthaben=this.TempGuthaben-10000;
+   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   		}
+   		else if(ae.getSource() == btnGoldMachine && goldi == 1 && this.TempGuthaben < 10000){
+			lblStatus.setText("Guthaben für Goldmachine zu niedrig!");
+			
+		}
+			
+    }
+    
+   		
+
     	
     
 

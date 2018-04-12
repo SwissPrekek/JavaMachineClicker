@@ -10,11 +10,15 @@ private Sellmachine s;
 Thread t1;
 Thread t2;
 Thread t3;
+
+
 public static RohstoffLager r = new RohstoffLager();
 
 public void addObj(RzFace obj) {
 objekte.add(obj);
 }
+
+
 
 
 public void DoMachine(int choice) {
@@ -50,13 +54,20 @@ public void DoMachine(int choice) {
 			
 				t3.start();
 			}
+			
+			
+
+
+			
+			
+		}
 		
 			
 	
 			
 		}
 	}
-}
+
 
 
 

@@ -3,7 +3,8 @@ package Logic;
 
 
 public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
-	
+	private int a=4;
+	private int b=100;
 	Rohstoffmachine rm;
 
 
@@ -17,9 +18,7 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 
 	
 	public void zaehlen() {
-	int a=1;
-	int	b=400;
-		
+
 	try {
 		   while (state==true) {
 			   		
@@ -49,7 +48,7 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 		Woodmachine.state = state;
 	}
 	
-	
+
 
 
 

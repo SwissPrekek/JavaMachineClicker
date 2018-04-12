@@ -15,6 +15,12 @@ public class Rohstoffmachine implements RzFace{
 		
 	}
 
+	
+	public void setSpeed() {
+		
+		
+	}
+
 	@Override
 	public boolean isRunning() {
 		// TODO Auto-generated method stub
@@ -26,6 +32,9 @@ public class Rohstoffmachine implements RzFace{
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
 
 	
 	

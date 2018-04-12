@@ -20,8 +20,4 @@ public void HackerAngriff(){
 	
 }
 
-public void UltraUpgrade(){
-	System.out.println("hallop");
-	
-}
 }
