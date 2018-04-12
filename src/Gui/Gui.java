@@ -21,13 +21,13 @@ import Logic.Stonemachine;
 import Logic.Woodmachine;        
 
 public class Gui extends JFrame implements ActionListener {
-		Bank b;
+		
 		int woodi=1;
 		int stonei=1;
 		int goldi=1;
 		Manager mgr =new Manager();
 		SpecialFunctions s =new SpecialFunctions();
-		public static RohstoffLager r = new RohstoffLager();
+
 		public static Bank banc = new Bank();
 		
 		double TempGuthaben;
@@ -295,28 +295,11 @@ public class Gui extends JFrame implements ActionListener {
     }
     	
     
-    public void run() {
-	
 
-   		
-   		try {
- 		  
-   			lblWoodMachineText.setText(Double.toString(Manager.r.getHolzmenge()));
-   			lblStoneMachineText.setText(Double.toString(Manager.r.getSteinmenge()));
- 			lblGoldMachineText.setText(Double.toString(Manager.r.getGoldmenge()));
- 			   		
- 			   		
- 			Thread.sleep(800);
- 			   
- 		        }
- 		     catch (InterruptedException e) {
- 		        System.out.println("Fehler in der Klasse Wood.java");
- 		    }
  	}
    		
 
    	
    		
-   		
-    }
+
 
