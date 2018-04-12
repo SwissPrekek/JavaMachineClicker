@@ -1,6 +1,7 @@
 package Logic;
 
 public class RohstoffLager {
+	Sellmachine sell=new Sellmachine();
 private double holzmenge;
 private double goldmenge;
 private double steinmenge;

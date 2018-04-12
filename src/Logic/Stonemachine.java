@@ -2,6 +2,7 @@ package Logic;
 
 public class Stonemachine extends Rohstoffmachine implements RzFace, Runnable {	
 	public static  boolean state = true;
+
 	
 public void run() {
 	zaehlen();

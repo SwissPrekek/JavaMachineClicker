@@ -16,6 +16,7 @@ import Logic.Goldmachine;
 import Logic.Manager;
 import Logic.RohstoffLager;
 import Logic.RzFace;
+import Logic.Sellmachine;
 import Logic.SpecialFunctions;
 import Logic.Stonemachine;
 import Logic.Woodmachine;        
@@ -26,6 +27,7 @@ public class Gui extends JFrame implements ActionListener {
 		int stonei=1;
 		int goldi=1;
 		Manager mgr =new Manager();
+		
 		SpecialFunctions s =new SpecialFunctions();
 
 		public static Bank banc = new Bank();

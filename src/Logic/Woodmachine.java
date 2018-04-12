@@ -6,6 +6,7 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 	Rohstoffmachine rm;
 
+
 	public static  boolean state = true;
 	
 	public void run() {

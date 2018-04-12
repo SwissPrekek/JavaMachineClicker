@@ -4,6 +4,7 @@ public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 	Rohstoffmachine rm;
 	public static  boolean state = true;
+
 	public void run() {
 		zaehlen();
 		
