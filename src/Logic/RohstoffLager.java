@@ -27,17 +27,24 @@ public double getGoldmenge() {
 }
 
 public double getSteinmenge() {
+	
 	return steinmenge;
 }
 
-public void delHolz() {
+public void HolzToSell() {
+	sell.holzverkauf(this.holzmenge);
+	
 	this.holzmenge=0;
 }
-public void delStein() {
+public void SteinToSell() {
+	sell.steinverkauf(this.steinmenge);
+
 	this.steinmenge=0;
 }
 
-public void delGold() {
+public void GoldToSell() {
+	sell.goldverkauf(this.goldmenge);
+	
 	this.goldmenge=0;
 }
 
