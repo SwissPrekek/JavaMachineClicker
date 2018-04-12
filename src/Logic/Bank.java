@@ -1,7 +1,8 @@
 package Logic;
 
 public class Bank {
-	private double guthaben;
+	private double guthaben=10000;
+	
 	
 	public void deposit(double guthaben) {
 		this.guthaben=this.guthaben+guthaben;
