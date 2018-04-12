@@ -279,6 +279,7 @@ public class Gui extends JFrame implements ActionListener {
    			
    		}else if(ae.getSource() == btnGoldMachine && goldi == 1 && this.TempGuthaben < 10000){
 			lblStatus.setText("Guthaben für Goldmachine zu niedrig!");
+			
 		}
 			
     }
