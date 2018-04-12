@@ -266,6 +266,7 @@ public class Gui extends JFrame implements ActionListener {
    			mgr.DoMachine(2);   			
    		}else if(ae.getSource() == btnStoneMachine && stonei == 1 && this.TempGuthaben < 2500){
 				lblStatus.setText("Guthaben für Stonemachine zu niedrig!");
+				
 		}
    		
    		if(ae.getSource() == btnGoldMachine && goldi==1 && this.TempGuthaben > 10000) {
