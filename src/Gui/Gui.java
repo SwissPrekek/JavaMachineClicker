@@ -271,8 +271,29 @@ public class Gui extends JFrame implements ActionListener {
    		}
 			
     }
-   		
     
+   		
+    public void imagePicker(int imageNumber){
+
+    	switch (imageNumber) {
+    	
+    	case 1: image.setIcon(new ImageIcon("src/gui/level_1.jpg"));
+    			break;
+    			
+    	case 2: image.setIcon(new ImageIcon("src/gui/level_2.jpg"));
+				break;
+				
+    	case 3: image.setIcon(new ImageIcon("src/gui/level_3.jpg"));
+				break;
+				
+    	case 4: image.setIcon(new ImageIcon("src/gui/level_4.jpg"));
+				break;
+				
+    	case 5: image.setIcon(new ImageIcon("src/gui/level_5.jpg"));
+				break;
+    	}
+    }
+    	
     
     public void run() {
 	
