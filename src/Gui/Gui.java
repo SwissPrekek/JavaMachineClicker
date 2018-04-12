@@ -67,6 +67,8 @@ public class Gui extends JFrame implements ActionListener {
         JLabel lblGoldMachine = new JLabel("0.0");
         JLabel lblGuthaben = new JLabel("0.0");
         
+        JLabel lblStatus = new JLabel("-");
+        
         //Buttons
         JButton btnBankEinzahlen = new JButton("Einzahlen");
         JButton btnBankAuszahlen = new JButton("Auszahlen");
@@ -105,7 +107,7 @@ public class Gui extends JFrame implements ActionListener {
         rightUnderGrid.setLayout(new GridLayout(2,1));
         bankButtonsGrid.setLayout(new GridLayout(3,1));
         spezButtonsGrid.setLayout(new GridLayout(3,1));
-        machineButtonsGrid.setLayout(new GridLayout(4,1));
+        machineButtonsGrid.setLayout(new GridLayout(5,1));
         statsGrid.setLayout(new GridLayout(5,2));
         
         
@@ -168,6 +170,7 @@ public class Gui extends JFrame implements ActionListener {
         machineButtonsGrid.add(btnWoodMachine);
         machineButtonsGrid.add(btnStoneMachine);
         machineButtonsGrid.add(btnGoldMachine);
+        machineButtonsGrid.add(lblStatus);
 
         
         machineButtonsGrid.setPreferredSize(new Dimension(250, 150));
@@ -240,7 +243,7 @@ public class Gui extends JFrame implements ActionListener {
    		}
    		
    		
-   		if(ae.getSource() == btnWoodMachine && woodi == 1) {
+   		if(ae.getSource() == btnWoodMachine && woodi == 1 && this.TempGuthaben > 800) {
    			
    			
    			mgr.addObj(new Woodmachine());
@@ -248,9 +251,11 @@ public class Gui extends JFrame implements ActionListener {
    			woodi=2;
    			mgr.DoMachine(1);
    		
-   			}		
+   			}else if(ae.getSource() == btnWoodMachine && woodi == 1 && this.TempGuthaben < 800){
+   				lblStatus.setText("Guthaben für Holzmachine zu niedrig!");
+   			}
    		
-   		if(ae.getSource() == btnStoneMachine && stonei==1) {
+   		if(ae.getSource() == btnStoneMachine && stonei==1 && this.TempGuthaben > 2500) {
    		
    			
 			
@@ -259,9 +264,11 @@ public class Gui extends JFrame implements ActionListener {
    			
    			stonei=2;
    			mgr.DoMachine(2);   			
-   		}	
+   		}else if(ae.getSource() == btnStoneMachine && stonei == 1 && this.TempGuthaben < 2500){
+				lblStatus.setText("Guthaben für Stonemachine zu niedrig!");
+		}
    		
-   		if(ae.getSource() == btnGoldMachine && goldi==1) {
+   		if(ae.getSource() == btnGoldMachine && goldi==1 && this.TempGuthaben > 10000) {
    			
 			
    			
@@ -270,7 +277,9 @@ public class Gui extends JFrame implements ActionListener {
    			goldi=2;
    			mgr.DoMachine(3); 			
    			
-   		}
+   		}else if(ae.getSource() == btnGoldMachine && goldi == 1 && this.TempGuthaben < 10000){
+			lblStatus.setText("Guthaben für Goldmachine zu niedrig!");
+		}
 			
     }
     
