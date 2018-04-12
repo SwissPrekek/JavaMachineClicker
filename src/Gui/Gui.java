@@ -28,51 +28,9 @@ public class Gui extends JFrame implements ActionListener {
 		Manager mgr =new Manager();
 		SpecialFunctions s =new SpecialFunctions();
 		public static RohstoffLager r = new RohstoffLager();
+		public static Bank banc = new Bank();
 		
 		double TempGuthaben;
-
-	    
-		boolean woodPressed=false;
-		boolean stonePressed=false;
-		boolean goldPressed=false;
-
-
-
-		public boolean isWoodPressed() {
-			return woodPressed;
-		}
-
-
-
-		public void setWoodPressed(boolean woodPressed) {
-			this.woodPressed = woodPressed;
-		}
-
-
-
-		public boolean isStonePressed() {
-			return stonePressed;
-		}
-
-
-
-		public void setStonePressed(boolean stonePressed) {
-			this.stonePressed = stonePressed;
-		}
-
-
-
-		public boolean isGoldPressed() {
-			return goldPressed;
-		}
-
-
-
-		public void setGoldPressed(boolean goldPressed) {
-			this.goldPressed = goldPressed;
-		}
-
-
 
 		//Panels
 		JPanel base = new JPanel();
@@ -117,11 +75,7 @@ public class Gui extends JFrame implements ActionListener {
         JButton btnWoodMachine = new JButton("Holzmaschine");
         JButton btnStoneMachine = new JButton("Stonemaschine");
         JButton btnGoldMachine = new JButton("Goldmaschine");
-        
-        
-        JButton btnWoodStop = new JButton("StopWood");
-        JButton btnStoneStop = new JButton("StopStone");
-        JButton btnGoldStop = new JButton("StopGold");
+
         
         //Textfeld
         JTextField txtStats = new JTextField();
@@ -135,7 +89,7 @@ public class Gui extends JFrame implements ActionListener {
         
     public Gui() {
     	
-    	
+    
         //Fenster erstellen
     	setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("How to get rich! ");
@@ -212,11 +166,7 @@ public class Gui extends JFrame implements ActionListener {
         machineButtonsGrid.add(btnWoodMachine);
         machineButtonsGrid.add(btnStoneMachine);
         machineButtonsGrid.add(btnGoldMachine);
-        
-        machineButtonsGrid.add(btnWoodStop);
-        machineButtonsGrid.add(btnStoneStop);
-        machineButtonsGrid.add(btnGoldStop);
-        
+
         
         machineButtonsGrid.setPreferredSize(new Dimension(250, 150));
         
@@ -241,10 +191,7 @@ public class Gui extends JFrame implements ActionListener {
         btnWoodMachine.addActionListener(this);
         btnStoneMachine.addActionListener(this);
         btnGoldMachine.addActionListener(this);
-        
-        btnWoodStop.addActionListener(this);
-        btnStoneStop.addActionListener(this);
-        btnGoldStop.addActionListener(this);
+
         
         
         
@@ -254,6 +201,8 @@ public class Gui extends JFrame implements ActionListener {
         //--------------------------------//
 
         add(base);
+        
+     
 
     }
     
@@ -270,16 +219,12 @@ public class Gui extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae){
 
    		if(ae.getSource() == btnBankEinzahlen) {
-   			//b.deposit(TempGuthaben);
-   			boolean x = true;
-   			while(x) {System.out.println("1");}
+   			banc.deposit(TempGuthaben);
    		}
    		
    		if(ae.getSource() == btnBankAuszahlen) {
-   			/*double tempguthaben=b.getGuthaben();
-   			b.withdraw(b.getGuthaben());
-   			this.TempGuthaben=this.TempGuthaben+tempguthaben; */
-   			System.out.println("2");
+   			this.TempGuthaben=this.TempGuthaben+banc.getGuthaben();
+   			banc.withdraw();
    		}
    		
    		if(ae.getSource() == btnSpezUltraUpgrade) {
@@ -293,84 +238,64 @@ public class Gui extends JFrame implements ActionListener {
    		}
    		
    		
-   		if(ae.getSource() == btnWoodMachine) {
-   			if(woodi==1){
+   		if(ae.getSource() == btnWoodMachine && woodi == 1) {
+   			
    			
    			mgr.addObj(new Woodmachine());
-   			mgr.setRunningTrue("Wood");
+   			
    			woodi=2;
-   			mgr.DoMachine();
-   			}
-			
-			else if(woodi==2){
-	   			
-	   			mgr.setRunningTrue("Wood");
-	   			mgr.DoMachine();
-	   		
-	   			
-	   			}	
-   		}
+   			mgr.DoMachine(1);
    		
-   		if(ae.getSource() == btnStoneMachine) {
+   			}		
+   		
+   		if(ae.getSource() == btnStoneMachine && stonei==1) {
    		
    			
-			if(stonei==1){
+			
    			
    			mgr.addObj(new Stonemachine());
-   			mgr.setRunningTrue("Stone");
+   			
    			stonei=2;
-   			mgr.DoMachine();
+   			mgr.DoMachine(2);   			
+   		}	
+   		
+   		if(ae.getSource() == btnGoldMachine && goldi==1) {
    			
-   			
-   			}
 			
-			else if(stonei==2){
-	   			
-	   			mgr.setRunningTrue("Stone");
-	   			mgr.DoMachine();
-	   			
-	   			
-	   			}
-   		
-   		}
-   		
-   		if(ae.getSource() == btnGoldMachine) {
-   			
-			if(goldi==1){
    			
    			mgr.addObj(new Goldmachine());
-   			mgr.setRunningTrue("Gold");
+   			
    			goldi=2;
-   			mgr.DoMachine();
+   			mgr.DoMachine(3); 			
    			
-   			
-   			}
+   		}
 			
-			else if(goldi==2){
-	   			this.setGoldPressed(false);
-	   			
-	   			mgr.setRunningTrue("Gold");
-	   			mgr.DoMachine();
-	   			
-	   			
-	   			}
-   		}
+    }
    		
+    
+    
+    public void run() {
+	
+
    		
-   		if(ae.getSource() == btnWoodStop) {
-   			mgr.setRunningFalse("Wood");
-   		}
+   		try {
+ 		  
+   			lblWoodMachineText.setText(Double.toString(Manager.r.getHolzmenge()));
+   			lblStoneMachineText.setText(Double.toString(Manager.r.getSteinmenge()));
+ 			lblGoldMachineText.setText(Double.toString(Manager.r.getGoldmenge()));
+ 			   		
+ 			   		
+ 			Thread.sleep(800);
+ 			   
+ 		        }
+ 		     catch (InterruptedException e) {
+ 		        System.out.println("Fehler in der Klasse Wood.java");
+ 		    }
+ 	}
    		
-   		if(ae.getSource() == btnStoneStop) {
-   			mgr.setRunningFalse("Stone");
-   		}
-   		
-   		if(ae.getSource() == btnGoldStop) {
-   			mgr.setRunningFalse("Gold");
-   		}
-   		
+
    	
    		
    		
     }
-}
+

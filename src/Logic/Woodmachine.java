@@ -17,7 +17,7 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 	public void zaehlen() {
 	int a=1;
-	int	b=1500;
+	int	b=400;
 		
 	try {
 		   while (state==true) {

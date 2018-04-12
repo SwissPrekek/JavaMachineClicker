@@ -12,7 +12,7 @@ public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 	public void zaehlen() {
 	int a=1;
-	int	b=1500;
+	int	b=6000;
 		
 	try {
 		   while (state==true) {

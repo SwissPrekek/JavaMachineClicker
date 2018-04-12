@@ -16,109 +16,11 @@ public void addObj(RzFace obj) {
 objekte.add(obj);
 }
 
-public void removeObj(RzFace obj) {
-	objekte.remove(obj);
-}
 
-
-
-public void setRunningTrue(String choice){
-	for(RzFace g : this.objekte) {
-		
-		if (choice.equals("Wood")) {
-			//g.setRunning(false);
-			
-			for(int i = 0; i<this.objekte.size();i++) {
-				if(this.objekte.get(i) instanceof Woodmachine) {
-					this.objekte.get(i).setRunning(true);
-				}
-				
-				System.out.println("Truesetter   "+this.objekte.get(i)+" "+this.objekte.get(i).isRunning());
-			}
-		}
-		else if (choice.equals("Stone")) {
-			//g.setRunning(false);
-			for(int i = 0; i<this.objekte.size();i++) {
-				if(this.objekte.get(i) instanceof Stonemachine) {
-					this.objekte.get(i).setRunning(true);
-				}
-				System.out.println("Truesetter   "+this.objekte.get(i)+" "+this.objekte.get(i).isRunning());
-			}
-		}
-		else if (choice.equals("Gold")) {
-			//g.setRunning(false);
-			for(int i = 0; i<this.objekte.size();i++) {
-				if(this.objekte.get(i) instanceof Goldmachine) {
-					this.objekte.get(i).setRunning(true);
-				}
-				System.out.println("Truesetter   "+this.objekte.get(i)+" "+this.objekte.get(i).isRunning());
-			}
-			
-		}
-
-		
-		else{
-		 System.out.println("Error - No instance");
-		}
-	
-}
-	
-	
-
-}
-
-
-
-
-public void setRunningFalse(String choice){
-	for(RzFace g : this.objekte) {
-		
-		if (choice.equals("Wood")) {
-			//g.setRunning(false);
-			
-			for(int i = 0; i<this.objekte.size();i++) {
-				if(this.objekte.get(i) instanceof Woodmachine) {
-					this.objekte.get(i).setRunning(false);
-				}
-				System.out.println("Falsesetter   "+this.objekte.get(i)+" "+this.objekte.get(i).isRunning());
-			}
-		}
-		else if (choice.equals("Stone")) {
-			//g.setRunning(false);
-			for(int i = 0; i<this.objekte.size();i++) {
-				if(this.objekte.get(i) instanceof Stonemachine) {
-					this.objekte.get(i).setRunning(false);
-				}
-				System.out.println(this.objekte);
-				System.out.println("Falsesetter   "+this.objekte.get(i)+" "+this.objekte.get(i).isRunning());
-			}
-		}
-		else if (choice.equals("Gold")) {
-			//g.setRunning(false);
-			for(int i = 0; i<this.objekte.size();i++) {
-				if(this.objekte.get(i) instanceof Goldmachine) {
-					this.objekte.get(i).setRunning(false);
-				}
-				System.out.println("Falsesetter   "+this.objekte.get(i)+" "+this.objekte.get(i).isRunning());
-			}
-			
-		}
-
-		
-		else{
-		 System.out.println("Error - No instance");
-		}
-	
-}
-	
-	
-
-}
-
-public void DoMachine() {
+public void DoMachine(int choice) {
 	//hashmap
 	for(RzFace g : this.objekte) {
-		System.out.println(g);
+		
 		
 		
 		
@@ -126,7 +28,10 @@ public void DoMachine() {
 			//t.start();
 			
 			//System.out.println(r.getHolzmenge());
-			if(g instanceof Woodmachine) {
+			
+		
+			
+			if(g instanceof Woodmachine && choice==1) {
 				t1 = new Thread(new Woodmachine());
 			
 				t1.start();
@@ -134,13 +39,13 @@ public void DoMachine() {
 				
 			}
 			
-			else if(g instanceof Stonemachine) {
+			else if(g instanceof Stonemachine && choice==2) {
 				t2 = new Thread(new Stonemachine());
 			
 				t2.start();
 			}
 			
-			else if(g instanceof Goldmachine) {
+			else if(g instanceof Goldmachine && choice==3) {
 				t3 = new Thread(new Goldmachine());
 			
 				t3.start();
