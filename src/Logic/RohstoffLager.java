@@ -2,23 +2,23 @@ package Logic;
 
 public class RohstoffLager {
 	Sellmachine sell=new Sellmachine();
-private double holzmenge;
-private double goldmenge;
-private double steinmenge;
+private long holzmenge;
+private long goldmenge;
+private long steinmenge;
 
-public void addHolzmenge(double HolzRein){
+public void addHolzmenge(long HolzRein){
 	this.holzmenge = this.holzmenge + HolzRein;
 }
 
-public void addSteinmenge(double SteinRein){
+public void addSteinmenge(long SteinRein){
 	this.steinmenge = this.steinmenge + SteinRein;
 }
 
-public void addGoldmenge(double GoldRein){
+public void addGoldmenge(long GoldRein){
 	this.goldmenge = this.goldmenge + GoldRein;
 }
 
-public double getHolzmenge() {
+public long getHolzmenge() {
 	return holzmenge;
 }
 

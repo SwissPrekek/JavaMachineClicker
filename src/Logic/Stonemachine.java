@@ -33,15 +33,4 @@ public void AddToRohstofflager(int menge) {
 }
 
 
-public boolean isRunning() {
-	return state;
-}
-
-
-public void setRunning(boolean state) {
-	Woodmachine.state = state;
-}
-
-
-
 }

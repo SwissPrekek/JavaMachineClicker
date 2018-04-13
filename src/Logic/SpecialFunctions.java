@@ -3,21 +3,22 @@ package Logic;
 import java.util.Random;
 
 
+
+
 public class SpecialFunctions {
-static Bank b = new Bank();
+
 public void HackerAngriff(){
 	Random rnd=new Random();
-	int rz=rnd.nextInt(2);
-	System.out.println(rz);
+	long rz=rnd.nextInt(2);
+
 	
+	if (rz==0) {
+		Gui.Gui.banc.deposit(100000);
+	}
 	
 	if (rz==1) {
-		b.deposit(1000);	
-		System.out.println(b.getGuthaben());
-		}
-
-	else {System.out.println("nicht eins");}
-	
+		Gui.Gui.banc.withdraw(100000);
+	}
 }
 
 }

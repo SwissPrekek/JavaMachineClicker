@@ -1,16 +1,20 @@
 package Logic;
 
 public class Bank {
-	private double guthaben=10000;
+	private long guthaben=10000;
 	
 	
-	public void deposit(double guthaben) {
+	public void deposit(long guthaben) {
 		this.guthaben=this.guthaben+guthaben;
 	}
-	public void withdraw() {
+	public void delete() {
 		this.guthaben=0;	
 	}
-	public double getGuthaben() {
+	
+	public void withdraw(long money) {
+		this.guthaben=this.guthaben-money;
+	}
+	public long getGuthaben() {
 		return guthaben;
 	}
 
