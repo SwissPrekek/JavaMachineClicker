@@ -35,6 +35,8 @@ public class Goldmachine extends Rohstoffmachine implements RzFace, Runnable {
 	
 
 
-
+	public boolean isRunning() {
+		return state;
+	}
 
 }

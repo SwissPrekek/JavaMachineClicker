@@ -37,8 +37,10 @@ public class Woodmachine extends Rohstoffmachine implements RzFace, Runnable {
 		Manager.r.addHolzmenge(menge);
 		
 	}
-
-
+	
+	public boolean isRunning() {
+		return state;
+	}
 
 
 

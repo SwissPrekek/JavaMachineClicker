@@ -36,6 +36,26 @@ public class Gui extends JFrame implements ActionListener {
 		
 		long TempGuthaben;
 
+		
+		
+		
+		
+		
+		
+		// Getters and Setters
+		public long getTempGuthaben() {
+			return TempGuthaben;
+		}
+		
+		public void setTempGuthaben(long tempGuthaben) {
+			TempGuthaben = tempGuthaben;
+		}
+
+
+
+
+
+
 		//Panels
 		JPanel base = new JPanel();
         JPanel baseGrid = new JPanel();
@@ -249,19 +269,19 @@ public class Gui extends JFrame implements ActionListener {
         //LevelAnzeige
         TimerTask level = new TimerTask() {
         	public void run() {
-        		if (TempGuthaben>=10000) {
+        		if (getTempGuthaben()>=10000) {
         			imagePicker(1);
 				}
-        		if (TempGuthaben>=100000) {
+        		if (getTempGuthaben()>=100000) {
         			imagePicker(2);
 				}
-        		if (TempGuthaben>=1000000) {
+        		if (getTempGuthaben()>=1000000) {
         			imagePicker(3);
 				}
-        		if (TempGuthaben>=10000000) {
+        		if (getTempGuthaben()>=10000000) {
         			imagePicker(4);
 				}
-        		if (TempGuthaben>=1000000000) {
+        		if (getTempGuthaben()>=1000000000) {
         			imagePicker(5);
 				}
         		
@@ -305,18 +325,18 @@ public class Gui extends JFrame implements ActionListener {
     	
     	//BankEinzahlen
    		if(ae.getSource() == btnBankEinzahlen) {
-   			banc.deposit(TempGuthaben);
-   			this.TempGuthaben=0;
-   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   			banc.deposit(this.getTempGuthaben());
+   			this.setTempGuthaben(0);
+   			lblGuthaben.setText(Double.toString(this.getTempGuthaben()));
    		}
    		
    		
    		
    		//BankAuszahlen
    		if(ae.getSource() == btnBankAuszahlen) {
-   			this.TempGuthaben=this.TempGuthaben+banc.getGuthaben();
+   			this.setTempGuthaben(this.getTempGuthaben()+banc.getGuthaben());
    			banc.delete();
-   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   			lblGuthaben.setText(Double.toString(this.getTempGuthaben()));
    		}
    		
    		
@@ -324,12 +344,12 @@ public class Gui extends JFrame implements ActionListener {
    		
    		
    		//UltraUpgrade
-   		if(ae.getSource() == btnSpezUltraUpgrade && this.TempGuthaben >1000000) {
+   		if(ae.getSource() == btnSpezUltraUpgrade && this.getTempGuthaben() >1000000) {
    			Manager.r.HolzToSell(4);
    			Manager.r.SteinToSell(4);
    			Manager.r.GoldToSell(4);
    			   		}
-   		else if (ae.getSource() == btnSpezUltraUpgrade && this.TempGuthaben <1000000) {
+   		else if (ae.getSource() == btnSpezUltraUpgrade && this.getTempGuthaben() <1000000) {
    			lblStatus.setText("Guthaben für UltraUpgrade zu niedrig");
 		}
    		
@@ -337,11 +357,11 @@ public class Gui extends JFrame implements ActionListener {
    		
    		
    		//Hackingangriff
-   		if(ae.getSource() == btnSpezHackingAngriff && this.TempGuthaben>1000000) {
+   		if(ae.getSource() == btnSpezHackingAngriff && this.getTempGuthaben()>1000000) {
    		SpecialFunctions s=new SpecialFunctions();
    		s.HackerAngriff();
    		}
-   		else if (ae.getSource() == btnSpezHackingAngriff && this.TempGuthaben<1000000) {
+   		else if (ae.getSource() == btnSpezHackingAngriff && this.getTempGuthaben()<1000000) {
    			lblStatus.setText("Guthaben für HackingAngriff zu niedrig");
 		}
    		
@@ -352,16 +372,16 @@ public class Gui extends JFrame implements ActionListener {
    		
    		
    		//Holzmaschine
-   		if(ae.getSource() == btnWoodMachine && woodi == 1 && this.TempGuthaben >= 10000) {
+   		if(ae.getSource() == btnWoodMachine && woodi == 1 && this.getTempGuthaben() >= 10000) {
    			  			
    			mgr.addObj(new Woodmachine());
    			   			woodi=2;
    			mgr.DoMachine(1);
-   			this.TempGuthaben=this.TempGuthaben-800;
-   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   			this.setTempGuthaben(this.getTempGuthaben()-800);
+   			lblGuthaben.setText(Double.toString(this.getTempGuthaben()));
    			}
    		
-   		else if(ae.getSource() == btnWoodMachine && woodi == 1 && this.TempGuthaben < 10000){
+   		else if(ae.getSource() == btnWoodMachine && woodi == 1 && this.getTempGuthaben() < 10000){
    				lblStatus.setText("Guthaben für Holzmachine zu niedrig!");
    			}
    		
@@ -371,16 +391,16 @@ public class Gui extends JFrame implements ActionListener {
    		
    		
    		//Steinmaschine
-   		if(ae.getSource() == btnStoneMachine && stonei==1 && this.TempGuthaben >= 50000) {  			
+   		if(ae.getSource() == btnStoneMachine && stonei==1 && this.getTempGuthaben() >= 50000) {  			
 			   			
    			mgr.addObj(new Stonemachine());
    			stonei=2;
    			mgr.DoMachine(2);  
-   			this.TempGuthaben=this.TempGuthaben-2500;
-   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   			this.setTempGuthaben(this.getTempGuthaben()-2500);
+   			lblGuthaben.setText(Double.toString(this.getTempGuthaben()));
    			
    		}
-   		else if(ae.getSource() == btnStoneMachine && stonei == 1 && this.TempGuthaben < 50000){
+   		else if(ae.getSource() == btnStoneMachine && stonei == 1 && this.getTempGuthaben() < 50000){
 				lblStatus.setText("Guthaben für Stonemachine zu niedrig!");
 				
 		}
@@ -388,7 +408,7 @@ public class Gui extends JFrame implements ActionListener {
    		
    		
    		//Goldmaschine
-   		if(ae.getSource() == btnGoldMachine && goldi==1 && this.TempGuthaben >= 100000) {
+   		if(ae.getSource() == btnGoldMachine && goldi==1 && this.getTempGuthaben() >= 100000) {
    			
 			
    			
@@ -396,10 +416,10 @@ public class Gui extends JFrame implements ActionListener {
    			
    			goldi=2;
    			mgr.DoMachine(3); 			
-   			this.TempGuthaben=this.TempGuthaben-10000;
-   			lblGuthaben.setText(Double.toString(this.TempGuthaben));
+   			this.setTempGuthaben(this.getTempGuthaben()-10000);
+   			lblGuthaben.setText(Double.toString(this.getTempGuthaben()));
    		}
-   		else if(ae.getSource() == btnGoldMachine && goldi == 1 && this.TempGuthaben < 100000){
+   		else if(ae.getSource() == btnGoldMachine && goldi == 1 && this.getTempGuthaben() < 100000){
 			lblStatus.setText("Guthaben für Goldmachine zu niedrig!");
 			
 		}

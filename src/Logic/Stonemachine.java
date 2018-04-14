@@ -31,6 +31,8 @@ public void AddToRohstofflager(int menge) {
 	Manager.r.addSteinmenge(menge);
 	
 }
-
+public boolean isRunning() {
+	return state;
+}
 
 }

@@ -18,7 +18,25 @@ public void addObj(RzFace obj) {
 objekte.add(obj);
 }
 
-
+public boolean IsRunning(int choice) {
+	boolean var = false;
+	for(RzFace g : this.objekte) {
+		if(g instanceof Woodmachine && choice==1) {
+			var= g.isRunning();
+			
+			
+		}
+		
+		else if(g instanceof Stonemachine && choice==2) {
+			var= g.isRunning();
+		}
+		
+		else if(g instanceof Goldmachine && choice==3) {
+			var= g.isRunning();
+		}
+	}
+	return var;
+}
 
 
 public void DoMachine(int choice) {
@@ -54,6 +72,8 @@ public void DoMachine(int choice) {
 			
 				t3.start();
 			}
+			
+			
 			
 			
 

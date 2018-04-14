@@ -3,7 +3,7 @@ package Logic;
 public class Rohstoffmachine implements RzFace{
 	private double menge;
 	RohstoffLager r;
-	
+	private boolean state;
 
 	
 	public void zaehlen() {
@@ -14,7 +14,9 @@ public class Rohstoffmachine implements RzFace{
 		
 		
 	}
-
+	public boolean isRunning() {
+		return state;
+	}
 
 	
 
