@@ -108,7 +108,7 @@ public class Testing {
 	
 	
 	@Test
-	// SpezialFunktionen testen
+	// Hacking Angriff testen
 	public void Testfall8() {
 		Bank b=new Bank();
 		Gui g= new Gui();
@@ -142,9 +142,6 @@ public class Testing {
 			b.delete();
 			g.setTempGuthaben(0);
 			
-			if(g.getTempGuthaben() >= 1000000) {
-				
-			}
 			
 			
 		}
@@ -154,6 +151,25 @@ public class Testing {
 	
 	
 	
+	@Test
+	// UltraUpgrade Angriff testen
+	public void Testfall9() {
+	SpecialFunctions s =new SpecialFunctions();
+	Bank b=new Bank();
+	b.delete();
+	Sellmachine sell =new Sellmachine();
+	RohstoffLager r =new RohstoffLager();
+	
+	
+	r.addHolzmenge(100);
+	
+	b.deposit(4*(r.getHolzmenge()*50));
+	
+	//4*(100*50) =20000
+	assertTrue(b.getGuthaben()==20000);
+		
+		
+	}
 	
 	
 	
