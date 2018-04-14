@@ -229,15 +229,15 @@ public class Gui extends JFrame implements ActionListener {
         TimerTask sell = new TimerTask() {
         	public void run() {
         		
-        		if (Manager.r.getHolzmenge()>=10000) {
+        		if (Manager.r.getHolzmenge()>=1000) {
         			Manager.r.HolzToSell(1);
 				}
         		
-        		if (Manager.r.getSteinmenge()>=10000) {
+        		if (Manager.r.getSteinmenge()>=1000) {
         			Manager.r.SteinToSell(1);
 				}
         		
-        		if (Manager.r.getGoldmenge()>=10000) {
+        		if (Manager.r.getGoldmenge()>=1000) {
         			Manager.r.GoldToSell(1);
 				}          	
         	}
