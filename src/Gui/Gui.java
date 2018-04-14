@@ -121,7 +121,7 @@ public class Gui extends JFrame implements ActionListener {
         //Fenster erstellen
     	setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("How to get rich! ");
-        setSize(1500,800);
+        setSize(900,600);
         setVisible(true);
         
         
@@ -155,17 +155,33 @@ public class Gui extends JFrame implements ActionListener {
         stats.setBorder(BorderFactory.createLineBorder(Color.black));
       	//statsGrid.add(lblStats);
         stats.add(lblStats);
+        lblStats.setFont(new Font("Arial", Font.BOLD, 30));
+        
         statsGrid.add(lblWoodMachineText);
+        lblWoodMachineText.setFont(new Font("Arial", Font.BOLD, 20));
+        
         statsGrid.add(lblWoodMachine);
+        lblWoodMachine.setFont(new Font("Arial", Font.BOLD, 20));
         
         statsGrid.add(lblStoneMachineText);
+        lblStoneMachineText.setFont(new Font("Arial", Font.BOLD, 20));
+        
         statsGrid.add(lblStoneMachine);
+        lblStoneMachine.setFont(new Font("Arial", Font.BOLD, 20));
+        
         
         statsGrid.add(lblGoldMachineText);
+        lblGoldMachineText.setFont(new Font("Arial", Font.BOLD, 20));
+        
         statsGrid.add(lblGoldMachine);
+        lblGoldMachine.setFont(new Font("Arial", Font.BOLD, 20));
         
         statsGrid.add(lblGuthabenText);
+        lblGuthabenText.setFont(new Font("Arial", Font.BOLD, 20));
+        
         statsGrid.add(lblGuthaben);
+        lblGuthaben.setFont(new Font("Arial", Font.BOLD, 20));
+        
         
         
 
@@ -179,9 +195,13 @@ public class Gui extends JFrame implements ActionListener {
         //Bank
         machines.setBorder(BorderFactory.createLineBorder(Color.black));
         bankButtonsGrid.add(lblBank);
+        lblBank.setFont(new Font("Arial", Font.BOLD, 30));
         
         bankButtonsGrid.add(btnBankEinzahlen);
+        btnBankEinzahlen.setFont(new Font("Arial", Font.BOLD, 20));
+        
         bankButtonsGrid.add(btnBankAuszahlen);
+        btnBankAuszahlen.setFont(new Font("Arial", Font.BOLD, 20));
         
         bankButtonsGrid.setPreferredSize(new Dimension(250, 150));
         
@@ -190,14 +210,22 @@ public class Gui extends JFrame implements ActionListener {
         //Maschinen
         bank.setBorder(BorderFactory.createLineBorder(Color.black));
         machineButtonsGrid.add(lblMachines);
+        lblMachines.setFont(new Font("Arial", Font.BOLD, 30));
         
         machineButtonsGrid.add(btnWoodMachine);
+        btnWoodMachine.setFont(new Font("Arial", Font.BOLD, 20));
+        
         machineButtonsGrid.add(btnStoneMachine);
+        btnStoneMachine.setFont(new Font("Arial", Font.BOLD, 20));
+        
         machineButtonsGrid.add(btnGoldMachine);
+        btnGoldMachine.setFont(new Font("Arial", Font.BOLD, 20));
+        
         machineButtonsGrid.add(lblStatus);
 
         
-        machineButtonsGrid.setPreferredSize(new Dimension(250, 150));
+        machineButtonsGrid.setPreferredSize(new Dimension(250, 450));
+        
         
         
         
@@ -205,9 +233,13 @@ public class Gui extends JFrame implements ActionListener {
         //SpezialFunktionen
         specialFunctions.setBorder(BorderFactory.createLineBorder(Color.black));
         spezButtonsGrid.add(lblSpecial);
+        lblSpecial.setFont(new Font("Arial", Font.BOLD, 30));
         
         spezButtonsGrid.add(btnSpezUltraUpgrade);
+        btnSpezUltraUpgrade.setFont(new Font("Arial", Font.BOLD, 20));
+        
         spezButtonsGrid.add(btnSpezHackingAngriff);
+        btnSpezHackingAngriff.setFont(new Font("Arial", Font.BOLD, 20));
         
         spezButtonsGrid.setPreferredSize(new Dimension(250, 150));
         
@@ -351,6 +383,8 @@ public class Gui extends JFrame implements ActionListener {
    			   		}
    		else if (ae.getSource() == btnSpezUltraUpgrade && this.getTempGuthaben() <1000000) {
    			lblStatus.setText("Guthaben für UltraUpgrade zu niedrig");
+   			lblStatus.setFont(new Font("Arial", Font.BOLD, 12));
+   			lblStatus.setForeground(Color.red);
 		}
    		
    		
@@ -363,6 +397,8 @@ public class Gui extends JFrame implements ActionListener {
    		}
    		else if (ae.getSource() == btnSpezHackingAngriff && this.getTempGuthaben()<1000000) {
    			lblStatus.setText("Guthaben für HackingAngriff zu niedrig");
+   			lblStatus.setFont(new Font("Arial", Font.BOLD, 12));
+   			lblStatus.setForeground(Color.red);
 		}
    		
    		
@@ -383,6 +419,8 @@ public class Gui extends JFrame implements ActionListener {
    		
    		else if(ae.getSource() == btnWoodMachine && woodi == 1 && this.getTempGuthaben() < 10000){
    				lblStatus.setText("Guthaben für Holzmachine zu niedrig!");
+   	   			lblStatus.setFont(new Font("Arial", Font.BOLD, 12));
+   	   			lblStatus.setForeground(Color.red);
    			}
    		
    		
@@ -402,6 +440,8 @@ public class Gui extends JFrame implements ActionListener {
    		}
    		else if(ae.getSource() == btnStoneMachine && stonei == 1 && this.getTempGuthaben() < 50000){
 				lblStatus.setText("Guthaben für Stonemachine zu niedrig!");
+	   			lblStatus.setFont(new Font("Arial", Font.BOLD, 12));
+	   			lblStatus.setForeground(Color.red);
 				
 		}
    		
@@ -421,6 +461,8 @@ public class Gui extends JFrame implements ActionListener {
    		}
    		else if(ae.getSource() == btnGoldMachine && goldi == 1 && this.getTempGuthaben() < 100000){
 			lblStatus.setText("Guthaben für Goldmachine zu niedrig!");
+   			lblStatus.setFont(new Font("Arial", Font.BOLD, 12));
+   			lblStatus.setForeground(Color.red);
 			
 		}
 			
