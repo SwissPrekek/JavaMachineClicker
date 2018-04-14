@@ -6,10 +6,13 @@ import java.util.Random;
 
 
 public class SpecialFunctions {
+private int rz;
+
+
 
 public void HackerAngriff(){
 	Random rnd=new Random();
-	long rz=rnd.nextInt(2);
+	rz=rnd.nextInt(2);
 
 	
 	if (rz==0) {
@@ -17,8 +20,16 @@ public void HackerAngriff(){
 	}
 	
 	if (rz==1) {
-		Gui.Gui.banc.withdraw(100000);
+		Gui.Gui.banc.deposit(100000);
 	}
+	
+	
+	
 }
+
+public int GetRZ() {
+	return this.rz;
+}
+
 
 }
