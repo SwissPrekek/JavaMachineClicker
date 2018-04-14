@@ -31,22 +31,73 @@ public class Testing {
 	@Test
 	//Test Der Holzmaschine
 	public void Testfall2() {
-		Bank b1=new Bank();
-		Gui g1= new Gui();
-		Manager mgr1=new Manager();
-		g1.setTempGuthaben(g1.getTempGuthaben()+b1.getGuthaben());
-			if(g1.getTempGuthaben() >= 10000) {
-			mgr1.addObj(new Woodmachine());
-	   			
-			mgr1.DoMachine(1);
-			g1.setTempGuthaben(g1.getTempGuthaben()-800);
+		Bank b=new Bank();
+		Gui g= new Gui();
+		Manager mgr=new Manager();
+		g.setTempGuthaben(g.getTempGuthaben()+b.getGuthaben());
 			
-			assertTrue(mgr1.IsRunning(1));
-			assertTrue(g1.getTempGuthaben()==9200);
+		if(g.getTempGuthaben() >= 10000) {
+			mgr.addObj(new Woodmachine());
+	   			
+			mgr.DoMachine(1);
+			g.setTempGuthaben(g.getTempGuthaben()-800);
+			
+			assertTrue(mgr.IsRunning(1));
+			assertTrue(g.getTempGuthaben()==9200);
+			}
+		}
+	
+	
+	
+	@Test
+	// Steinmaschine testen
+	public void Testfall4() {
+		Bank b=new Bank();
+		Gui g= new Gui();
+		Manager mgr=new Manager();
+		// 50000 Guthaben auf die Bank aufladen damit die Maschine überhaupt gestartet werden kann.
+		b.deposit(50000);
+		g.setTempGuthaben(g.getTempGuthaben()+b.getGuthaben());
+		
+			
+		if(g.getTempGuthaben() >= 50000) {
+			mgr.addObj(new Stonemachine());
+	   			
+			mgr.DoMachine(2);
+			g.setTempGuthaben(g.getTempGuthaben()-50000);
+			
+			assertTrue(mgr.IsRunning(2));
+			assertTrue(g.getTempGuthaben()==10000);
 
 		
 			}
-		
 	}
+	
+	
+	@Test
+	// Goldmaschine testen
+	public void Testfall5() {
+		Bank b=new Bank();
+		Gui g= new Gui();
+		Manager mgr=new Manager();
+		// 100000 Guthaben auf die Bank aufladen damit die Maschine überhaupt gestartet werden kann.
+		b.deposit(100000);
+		g.setTempGuthaben(g.getTempGuthaben()+b.getGuthaben());
+		
+			
+		if(g.getTempGuthaben() >= 100000) {
+			mgr.addObj(new Goldmachine());
+	   			
+			mgr.DoMachine(3);
+			g.setTempGuthaben(g.getTempGuthaben()-100000);
+			
+			assertTrue(mgr.IsRunning(3));
+			assertTrue(g.getTempGuthaben()==10000);
+
+		}
+	}
+	
+	
+	
 
 }

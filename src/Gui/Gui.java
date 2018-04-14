@@ -396,7 +396,7 @@ public class Gui extends JFrame implements ActionListener {
    			mgr.addObj(new Stonemachine());
    			stonei=2;
    			mgr.DoMachine(2);  
-   			this.setTempGuthaben(this.getTempGuthaben()-2500);
+   			this.setTempGuthaben(this.getTempGuthaben()-50000);
    			lblGuthaben.setText(Double.toString(this.getTempGuthaben()));
    			
    		}
