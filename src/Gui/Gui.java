@@ -253,21 +253,21 @@ public class Gui extends JFrame implements ActionListener {
         			imagePicker(1);
 				}
         		if (TempGuthaben>=100000) {
-        			imagePicker(1);
+        			imagePicker(2);
 				}
         		if (TempGuthaben>=1000000) {
-        			imagePicker(1);
+        			imagePicker(3);
 				}
         		if (TempGuthaben>=10000000) {
-        			imagePicker(1);
+        			imagePicker(4);
 				}
         		if (TempGuthaben>=1000000000) {
-        			imagePicker(1);
+        			imagePicker(5);
 				}
         		
         	}
         };
-        t.schedule(level,1000,1000);
+        t.schedule(level,200,200);
     }
     
     
