@@ -147,10 +147,7 @@ public class Testing {
 		}
 	}
 	
-	
-	
-	
-	
+		
 	@Test
 	// UltraUpgrade Angriff testen
 	public void Testfall9() {
