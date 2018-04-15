@@ -22,7 +22,13 @@ import Logic.Sellmachine;
 import Logic.SpecialFunctions;
 import Logic.Stonemachine;
 import Logic.Woodmachine;        
-
+/**
+ * 
+ * @author Fabian Zeller, and Design von Patrik Rudin
+ * 
+ * Ist die Klasse GUI welche fuers GUI zustaendig ist
+ *
+ */
 public class Gui extends JFrame implements ActionListener {
 		
 		int woodi=1;
@@ -43,16 +49,20 @@ public class Gui extends JFrame implements ActionListener {
 		
 		
 		// Getters and Setters
+		/**
+		 * 
+		 * @return gibt TempGuthaben zurueck
+		 */
 		public long getTempGuthaben() {
 			return TempGuthaben;
 		}
-		
-		public void setTempGuthaben(long tempGuthaben) {
-			TempGuthaben = tempGuthaben;
+		/**
+		 * 
+		 * @param tempGuthaben dient dazu dem TempGuthaben einen neuen Wert zu setzen
+		 */
+		public void setTempGuthaben(long TempGuthaben) {
+			TempGuthaben = TempGuthaben;
 		}
-
-
-
 
 
 
@@ -113,7 +123,9 @@ public class Gui extends JFrame implements ActionListener {
         
       
         
-        
+        /**
+         * Konstruktormethode welche das aussehen des Guis definiert
+         */
         
     public Gui() {
     	
@@ -264,6 +276,9 @@ public class Gui extends JFrame implements ActionListener {
         add(base);
         
         //GUI Update
+        /**
+         * TimerTask welcher das GUI updatet
+         */
         Timer t = new Timer();
         TimerTask guiUpdate = new TimerTask() {
         	public void run() {
@@ -278,6 +293,9 @@ public class Gui extends JFrame implements ActionListener {
         
         
         //Verkaufen
+        /**
+         * Timertask welcher nach und nach prueft ob genug Rohstoffe vorhanden sind um zu verkaufen
+         */
         TimerTask sell = new TimerTask() {
         	public void run() {
         		
@@ -299,6 +317,9 @@ public class Gui extends JFrame implements ActionListener {
         
         
         //LevelAnzeige
+        /**
+         * Timertask welcher die Levelanzeige
+         */
         TimerTask level = new TimerTask() {
         	public void run() {
         		if (getTempGuthaben()>=10000) {
@@ -326,6 +347,10 @@ public class Gui extends JFrame implements ActionListener {
     
     
     //Imagepicker
+    /**
+     * 
+     * @param imageNumber Dient dazu auszuwaehlen welches Bild angezeigt werden soll
+     */
     public void imagePicker(int imageNumber){
 
     	switch (imageNumber) {
@@ -351,7 +376,9 @@ public class Gui extends JFrame implements ActionListener {
     }
     
     
-    
+    /**
+     * ActionEvent welche3s dazu dient die Aktionen zu definieren welche die Buttons tun sollen.
+     */
     public void actionPerformed(ActionEvent ae){
     	
     	

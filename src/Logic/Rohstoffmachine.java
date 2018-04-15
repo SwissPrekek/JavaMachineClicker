@@ -1,11 +1,14 @@
 package Logic;
-
+/**
+ * 
+ * @author Fabian Zeller, Patrik Rudin
+ * Ist eine Klasse welche an die Woodmachine, Stonemachine und Goldmachine vererbt. Die genaue Methodenbeschreibung findet man in diesen Klassen
+ */
 public class Rohstoffmachine implements RzFace{
 	private double menge;
 	RohstoffLager r;
 	private boolean state;
 
-	
 	public void zaehlen() {
 
 	}
@@ -16,6 +19,12 @@ public class Rohstoffmachine implements RzFace{
 	}
 	public boolean isRunning() {
 		return state;
+	}
+
+	@Override
+	public void setRunning(boolean state) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

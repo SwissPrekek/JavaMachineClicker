@@ -4,12 +4,19 @@ import java.util.Random;
 
 
 
-
+/**
+ * 
+ * @author Fabian Zeller, Patrik Rudin
+ * Klasse welche die Spezialfunktion HackerAngriff beinhaltet
+ *
+ */
 public class SpecialFunctions {
 private int rz;
 
 
-
+/**
+ * HackerAngriff Klasse welche den HackerAngriff ausfuehrt.
+ */
 public void HackerAngriff(){
 	Random rnd=new Random();
 	rz=rnd.nextInt(2);
@@ -26,7 +33,10 @@ public void HackerAngriff(){
 	
 	
 }
-
+/**
+ * 
+ * @return gibt den Wert der Variable rz zurueck um das Testing in der testing methode zu machen.
+ */
 public int GetRZ() {
 	return this.rz;
 }

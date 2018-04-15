@@ -7,11 +7,17 @@ import java.util.Random;
 import org.junit.Test;
 
 import Gui.Gui;
-
+/**
+ * 
+ * @author Fabian Zeller, Patrik Rudin
+ * Klasse fuers Testing
+ *
+ */
 public class Testing {
 
 	@Test
 	//ist gleichzeitig auch testfall 8 da wir das GUI nicht wirklich testen können abgesehen davon es zu bedienen.
+
 	public void Testfall1und7() {
 		Bank b=new Bank();
 		Gui g= new Gui();
