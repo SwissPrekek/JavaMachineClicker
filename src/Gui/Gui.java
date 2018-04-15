@@ -56,12 +56,13 @@ public class Gui extends JFrame implements ActionListener {
 		public long getTempGuthaben() {
 			return TempGuthaben;
 		}
+		
 		/**
 		 * 
 		 * @param tempGuthaben dient dazu dem TempGuthaben einen neuen Wert zu setzen
 		 */
 		public void setTempGuthaben(long TempGuthaben) {
-			TempGuthaben = TempGuthaben;
+			this.TempGuthaben = TempGuthaben;
 		}
 
 

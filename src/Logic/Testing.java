@@ -7,30 +7,26 @@ import java.util.Random;
 import org.junit.Test;
 
 import Gui.Gui;
-/**
- * 
- * @author Fabian Zeller, Patrik Rudin
- * Klasse fuers Testing
- * 
- */
+
 public class Testing {
-
+	//Dies ist ein kombinierter Test aus Status und Bank
 	@Test
-	//ist gleichzeitig auch testfall 8 da wir das GUI nicht wirklich testen können abgesehen davon es zu bedienen.
-
-	public void Testfall1und7() {
+	public void Testfall1() {
 		Bank b=new Bank();
 		Gui g= new Gui();
 		Manager mgr=new Manager();
 		// Bank einzahlen / Auszahlen
-		b.deposit(10000);
-		b.withdraw(10000);
-		assertTrue(b.getGuthaben()==10000);
-		
-		//Betrag getten und in die Variable TempGuthaben speichern
-		g.setTempGuthaben(g.getTempGuthaben()+b.getGuthaben());
 		b.delete();
-		assertTrue(g.getTempGuthaben()==10000);
+		b.deposit(10000);
+		b.withdraw(5000);
+		
+		System.out.println(b.getGuthaben());
+		//Betrag getten und in die Variable TempGuthaben speichern
+		g.setTempGuthaben(b.getGuthaben());
+		
+		
+		b.delete();
+		assertTrue(g.getTempGuthaben()==5000);
 		assertTrue(b.getGuthaben()==0);
 	}
 	
@@ -58,7 +54,7 @@ public class Testing {
 	
 	@Test
 	// Steinmaschine testen
-	public void Testfall4() {
+	public void Testfall3() {
 		Bank b=new Bank();
 		Gui g= new Gui();
 		Manager mgr=new Manager();
@@ -83,7 +79,7 @@ public class Testing {
 	
 	@Test
 	// Goldmaschine testen
-	public void Testfall5() {
+	public void Testfall4() {
 		Bank b=new Bank();
 		Gui g= new Gui();
 		Manager mgr=new Manager();
@@ -106,7 +102,7 @@ public class Testing {
 	
 	@Test
 	// ImagePicker testen
-	public void Testfall6() {
+	public void Testfall5() {
 		/* den ImagePicker kann man nicht als Testfall testen.
 		 * Jedoch kann man Ihn testen indem man ab den jeweiligen Guthaben schuat ob sich das bild ändert.
 		 */	
@@ -115,7 +111,7 @@ public class Testing {
 	
 	@Test
 	// Hacking Angriff testen
-	public void Testfall8() {
+	public void Testfall6() {
 		Bank b=new Bank();
 		Gui g= new Gui();
 		Manager mgr=new Manager();
@@ -155,22 +151,27 @@ public class Testing {
 	
 		
 	@Test
-	// UltraUpgrade Angriff testen
-	public void Testfall9() {
+	// UltraUpgrade Angriff testen ist indirekt auch ein Verkaufsmaschinentest
+	public void Testfall7() {
 	SpecialFunctions s =new SpecialFunctions();
 	Bank b=new Bank();
 	b.delete();
 	Sellmachine sell =new Sellmachine();
 	RohstoffLager r =new RohstoffLager();
-	
-	
-	r.addHolzmenge(100);
-	
-	b.deposit(4*(r.getHolzmenge()*50));
-	
-	//4*(100*50) =20000
-	assertTrue(b.getGuthaben()==20000);
+	Gui g=new Gui();
+	b.delete();
+	b.deposit(1000000);
+	g.setTempGuthaben(g.getTempGuthaben()+b.getGuthaben());
+	b.delete();
+	if (g.getTempGuthaben()>=1000000) {
+		r.addHolzmenge(100);
 		
+		b.deposit(4*(r.getHolzmenge()*50));
+		
+		//4*(100*50) =20000
+		assertTrue(b.getGuthaben()==20000);
+	}
+
 		
 	}
 	
