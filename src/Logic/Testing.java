@@ -11,7 +11,7 @@ import Gui.Gui;
  * 
  * @author Fabian Zeller, Patrik Rudin
  * Klasse fuers Testing
- *
+ * 
  */
 public class Testing {
 
