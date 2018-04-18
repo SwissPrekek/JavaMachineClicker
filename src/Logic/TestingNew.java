@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import Gui.Gui;
 
-public class Testing {
+public class TestingNew {
 	//Dies ist ein kombinierter Test aus Status und Bank
 	@Test
 	public void Testfall1() {
