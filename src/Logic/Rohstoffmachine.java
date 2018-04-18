@@ -5,8 +5,7 @@ package Logic;
  * Ist eine Klasse welche an die Woodmachine, Stonemachine und Goldmachine vererbt. Die genaue Methodenbeschreibung findet man in diesen Klassen
  */
 public class Rohstoffmachine implements RzFace{
-	private double menge;
-	RohstoffLager r;
+
 	private boolean state;
 
 	public void zaehlen() {

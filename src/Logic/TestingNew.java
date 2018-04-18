@@ -20,7 +20,7 @@ public class TestingNew {
 		b.deposit(10000);
 		b.withdraw(5000);
 		
-		System.out.println(b.getGuthaben());
+		
 		//Betrag getten und in die Variable TempGuthaben speichern
 		g.setTempGuthaben(b.getGuthaben());
 		

@@ -65,18 +65,28 @@ public double getSteinmenge() {
 
 
 
-
+/**
+ * 
+ * @param percent um die Prozent anzugeben mal wieviel der Ertrag multipliziert wird
+ */
 public void HolzToSell(int percent) {
 	sell.holzverkauf(this.holzmenge,percent);
 	
 	this.holzmenge=0;
 }
+/**
+ * 
+ * @param percent um die Prozent anzugeben mal wieviel der Ertrag multipliziert wird
+ */
 public void SteinToSell(int percent) {
 	sell.steinverkauf(this.steinmenge,percent);
 
 	this.steinmenge=0;
 }
-
+/**
+ * 
+ * @param percent um die Prozent anzugeben mal wieviel der Ertrag multipliziert wird
+ */
 public void GoldToSell(int percent) {
 	sell.goldverkauf(this.goldmenge,percent);
 	
