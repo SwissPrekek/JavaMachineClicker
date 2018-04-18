@@ -441,7 +441,7 @@ public class Gui extends JFrame implements ActionListener {
    			mgr.addObj(new Woodmachine());
    			   			woodi=2;
    			mgr.DoMachine(1);
-   			this.setTempGuthaben(this.getTempGuthaben()-800);
+   			this.setTempGuthaben(this.getTempGuthaben()-10000);
    			lblGuthaben.setText(Double.toString(this.getTempGuthaben()));
    			}
    		
@@ -484,7 +484,7 @@ public class Gui extends JFrame implements ActionListener {
    			
    			goldi=2;
    			mgr.DoMachine(3); 			
-   			this.setTempGuthaben(this.getTempGuthaben()-10000);
+   			this.setTempGuthaben(this.getTempGuthaben()-100000);
    			lblGuthaben.setText(Double.toString(this.getTempGuthaben()));
    		}
    		else if(ae.getSource() == btnGoldMachine && goldi == 1 && this.getTempGuthaben() < 100000){
