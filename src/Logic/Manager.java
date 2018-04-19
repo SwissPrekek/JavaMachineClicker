@@ -54,18 +54,9 @@ public boolean IsRunning(int choice) {
  * @param choice entscheidung welche maschine angesprochen werden soll.
  */
 public void DoMachine(int choice) {
-	//hashmap
+
 	for(RzFace g : this.objekte) {
-		
-		
-		
-		
-			//t = new Thread(new Woodmachine());
-			//t.start();
-			
-			//System.out.println(r.getHolzmenge());
-			
-		
+				
 			
 			if(g instanceof Woodmachine && choice==1) {
 				t1 = new Thread(new Woodmachine());

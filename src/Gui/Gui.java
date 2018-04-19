@@ -29,6 +29,7 @@ import Logic.Woodmachine;
  * Ist die Klasse GUI welche fuers GUI zustaendig ist
  *
  */
+
 public class Gui extends JFrame implements ActionListener {
 		
 		int woodi=1;
@@ -48,7 +49,7 @@ public class Gui extends JFrame implements ActionListener {
 		
 		
 		
-		// Getters and Setters
+		
 		/**
 		 * 
 		 * @return gibt TempGuthaben zurueck
